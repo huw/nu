@@ -122,5 +122,6 @@ div#me div.rightcol h1 {
 	font-size: 6em;
 }
 div#me div.rightcol p {
-	font-size: 1.7em;
+	font-size  : 1.7em;
+	line-height: 1.3;
 }
