@@ -22,14 +22,13 @@ html
 				div#me
 					div.leftcol
 						img.profile(src='http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=100')
-							//- Get small version of profile picture in case client is slow to load JQuery or something.
+						//- Get small version of profile picture in case client is slow to load JQuery or something.
 						p My current profile picture
 					div.rightcol
 						h1 Hi. I'm Huw.
 						p.bold Quick Facts: 
 						p 
 							<span class='replace'></span>
-							//- Gets replaced with timer
 							=" seconds until I turn " + age
 						p
 							='Made ' + gitCommits + ' commits to BitBucket'

@@ -4,7 +4,10 @@
  */
 
 exports.index = function(req, res){
-    res.render('index', {});
+	var birthday = +new Date("1999-04-28");
+	var age      = ~~((Date.now() - birthday) / (31557600000)) + 1;
+
+    res.render('index', {"age": age});
 };
 
 /*exports.userlist = function(db) {
