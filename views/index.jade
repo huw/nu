@@ -1,0 +1,34 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
+		script(src='/javascripts/blur.js')
+		script(src='/javascripts/script.js')
+	body
+		div.header
+			h1 HUW
+			p
+				a(href="#me") me
+				|  - 
+				a(href="#chat") chat
+				|  - 
+				a(href="#creations") creations
+			img.gear(src='/images/gear.png')
+		div.content
+			div.mebg
+				div#me
+					div.leftcol
+						img.profile(src='/images/profile.png')
+						p My current profile picture
+					div.rightcol
+						h1 Hi. I'm Huw.
+						p.bold Quick Facts: 
+						p 
+							<span class='.replace'></span>
+							=" seconds until I turn " + age
+						p
+							='Made ' + githubCommits + ' commits to BitBucket'
+						p
+							='Gained ' + redditKarma + ' Reddit Karma'

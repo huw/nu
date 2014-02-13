@@ -1,0 +1,128 @@
+/******************************* RESET CSS ******/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/******************************* IMPORT WEB FONTS ******/
+@font-face {
+	font-family: 'Raleway';
+	font-style : normal;
+	font-weight: 100;
+	src        : url(http://themes.googleusercontent.com/static/fonts/raleway/v7/RJMlAoFXXQEzZoMSUteGWD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+	font-family: 'Source Code Pro';
+	font-style : normal;
+	font-weight: 300;
+	src        : url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqdbE_oMaV8t2eFeISPpzbdE.woff) format('woff');
+}
+@font-face {
+	font-family: 'Source Code Pro';
+	font-style : normal;
+	font-weight: 900;
+	src        : url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/leqv3v-yTsJNC7nFznSMqXiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
+}
+
+/******************************* GENERAL STYLING ******/
+p, h2, h3, h4, h5, h6, span, li, td {
+	font-family: 'Source Code Pro';
+	font-weight: 300;
+	color      : #FFF;
+}
+.bold {
+	font-weight: 900;
+}
+h1 {
+	font-family: 'Raleway';
+	font-weight: 100;
+	color      : #FFF;
+}
+
+/******************************* HEADER SECTION ******/
+.header {
+	background: #C1CED6;
+}
+.header p, .header h1, .header a {
+	color: #D9723C;
+}
+.header h1 {
+	font-family: "Raleway", arial;
+	font-weight: 100;
+	font-size  : 15em;
+	text-align : center;
+	padding-top: 2%;
+	line-height: 0.8;
+}
+.header p {
+	font-family   : "Source Code Pro", courier;
+	font-size     : 2.8em;
+	text-align    : center;
+	padding-bottom: 3%;
+	position      : relative;
+	z-index       : 2;
+}
+.header img.gear {
+	height           : 800px;
+	width            : auto;
+	display          : block;
+	margin           : 0 auto;
+	position         : relative;
+	z-index          : 1;
+	animation        : rotate-gear 360s linear infinite;
+	-webkit-animation: rotate-gear 360s linear infinite;
+}
+@keyframes rotate-gear {
+	from {
+		transform    : rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform    : rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate-gear {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+/******************************* ME SECTION ******/
+div#me {
+	color: #FFF;
+	clear: both;
+}
+div.mebg {
+	background: url('/images/cover.jpg');
+}
+div#me div.leftcol {
+	display     : inline-block;
+	padding-left: 8%;
+	padding-top : 8%;
+	width       : 30%;
+}
+div#me div.leftcol img {
+	border       : 15px solid #FFF;
+	box-shadow   : 0px 10px 8px 0px rgba(0, 0, 0, .5);
+	margin-bottom: 8px;
+	width        : 90%;
+}
+div#me div.leftcol p {
+	text-align : center;
+	font-weight: 900;
+	font-size  : 1.2em;
+}
+div#me div.rightcol {
+	display       : inline-block;
+	vertical-align: top;
+	padding-top   : 11%;
+	padding-left  : 2%;
+	padding-right : 8%;
+}
+div#me div.rightcol h1 {
+	font-size: 6em;
+}
+div#me div.rightcol p {
+	font-size: 1.7em;
+}
