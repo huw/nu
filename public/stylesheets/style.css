@@ -22,16 +22,16 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 /******************************* GENERAL STYLING ******/
-p, h2, h3, h4, h5, h6, span, li, td {
-	font-family: 'Source Code Pro';
+p, h2, h3, h4, h5, h6, span, li, td { /* Normalises Fonts */
+	font-family: 'Source Code Pro', courier;
 	font-weight: 300;
 	color      : #FFF;
 }
-.bold {
+.bold { /* Sets bold style (in case <b> doesn't cut it) */
 	font-weight: 900;
 }
-h1 {
-	font-family: 'Raleway';
+h1 { /* Sets default header style */
+	font-family: 'Raleway', arial;
 	font-weight: 100;
 	color      : #FFF;
 }
@@ -40,19 +40,16 @@ h1 {
 .header {
 	background: #C1CED6;
 }
-.header p, .header h1, .header a {
+.header p, .header h1, .header a { /* Colours stuff */
 	color: #D9723C;
 }
 .header h1 {
-	font-family: "Raleway", arial;
-	font-weight: 100;
 	font-size  : 15em;
 	text-align : center;
 	padding-top: 2%;
 	line-height: 0.8;
 }
 .header p {
-	font-family   : "Source Code Pro", courier;
 	font-size     : 2.8em;
 	text-align    : center;
 	padding-bottom: 3%;
@@ -66,7 +63,7 @@ h1 {
 	margin           : 0 auto;
 	position         : relative;
 	z-index          : 1;
-	animation        : rotate-gear 360s linear infinite;
+	animation        : rotate-gear 360s linear infinite; /* Animate! */
 	-webkit-animation: rotate-gear 360s linear infinite;
 }
 @keyframes rotate-gear {
@@ -81,7 +78,7 @@ h1 {
 }
 @-webkit-keyframes rotate-gear {
 	from {
-		-webkit-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg); /* We only need to animate the webkit transforms in the webkit animation */
 	}
 	to {
 		-webkit-transform: rotate(360deg);
@@ -90,8 +87,9 @@ h1 {
 
 /******************************* ME SECTION ******/
 div#me {
-	color: #FFF;
-	clear: both;
+	color         : #FFF;
+	clear         : both;
+	padding-bottom: 8%;
 }
 div.mebg {
 	background: url('/images/cover.jpg');

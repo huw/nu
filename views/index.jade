@@ -6,6 +6,7 @@ html
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
 		script(src='/javascripts/blur.js')
 		script(src='/javascripts/script.js')
+		// All source available @ bitbucket.org/huwtheperson/personal-site
 	body
 		div.header
 			h1 HUW
@@ -21,12 +22,14 @@ html
 				div#me
 					div.leftcol
 						img.profile(src='http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=100')
+							//- Get small version of profile picture in case client is slow to load JQuery or something.
 						p My current profile picture
 					div.rightcol
 						h1 Hi. I'm Huw.
 						p.bold Quick Facts: 
 						p 
 							<span class='replace'></span>
+							//- Gets replaced with timer
 							=" seconds until I turn " + age
 						p
 							='Made ' + gitCommits + ' commits to BitBucket'
