@@ -14,6 +14,18 @@ $(function() {
 	});
 });
 
+var end = new Date('04/28/2014 4:00 AM');
+var timer;
+
+function countdown() {
+    var now = new Date();
+    var distance = Math.floor((end - now) / 1000)
+
+    $(".replace").text(distance);
+}
+
+timer = setInterval(countdown, 1000);
+
 jQuery(document).ready(function(){
 	/* Dimensions */
 	$(".header").css("height", $(window).innerHeight());
