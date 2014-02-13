@@ -27,7 +27,8 @@ jQuery(document).ready(function(){
 
 	/* Other */
 	$("#me").blurjs({
-		source: '.mebg',
+		source: '.mebg',	// PHASE THIS OUT!!
 		radius: 15,
 	});
+	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
 });

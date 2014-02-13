@@ -4,19 +4,6 @@
  */
 
 exports.index = function(req, res){
-    var request = require('request');
-    var fs = require('fs');
-
-    var bodyArray;
-    var imageURL;
-    var coverURL;
-
-    var download = function (uri, filename) {
-        request.head(uri, function(err, res, body) {
-            request(uri).pipe(fs.createWriteStream(filename));
-        });
-    };
-
     res.render('index', {});
 };
 
