@@ -4,22 +4,29 @@
  */
 
 exports.index = function(req, res){
+    console.log("\033[90mIP: \033[32m"+req.ip);
+
 	var request  = require('request');
 
 	var birthday    = +new Date("1999-04-28");
 	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1;
 	var redditKarma;
 
-	request('http://www.reddit.com/user/3vans/about.json', function (error, response, body) {
+	request('https://www.reddit.com/user/3vans/about.json', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			redditKarma = JSON.parse(body);
 			redditKarma = parseInt(redditKarma.data.link_karma) + parseInt(redditKarma.data.comment_karma);
 
-			res.render('index', {
-				"age"        : age,
-				"redditKarma": redditKarma
-			});
-		}
+            res.render('index', {
+                "age"        : age,
+                "redditKarma": redditKarma
+            });
+		} else {
+            res.render('index', {
+                "age"        : age,
+                "redditKarma": "~9000"
+            });
+        }
 	});
 };
 
