@@ -16,7 +16,7 @@ var db      = monk('localhost:27017/nodetest');
 var app     = express();
 
 // all environments
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -28,6 +28,8 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.enable('trust proxy');
 
 // development only
 if ('development' == app.get('env')) {
