@@ -26,7 +26,21 @@ function countdown() {
 
 timer = setInterval(countdown, 1000);
 
-jQuery(document).ready(function(){
+$(document).ready(function(){
+	windowUpdate();
+
+	$("#me").blurjs({
+		source: '.mebg',	// PHASE THIS OUT!!
+		radius: 15,
+	});
+	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
+
+	$(window).resize(function() {
+		windowUpdate();
+	});
+});
+
+var windowUpdate = function() {
 	/* Dimensions */
 	$(".header").css("height", $(window).innerHeight());
 	$("img.gear").css("height", $(window).innerHeight()*0.8);
@@ -36,11 +50,4 @@ jQuery(document).ready(function(){
 	$(".header h1").css("font-size", $(window).innerHeight()*0.28)
 	$("#me h1").css("font-size", $(window).innerHeight()*0.1)
 	$("#me .rightcol p").css("font-size", $(window).innerHeight()*0.03)
-
-	/* Other */
-	$("#me").blurjs({
-		source: '.mebg',	// PHASE THIS OUT!!
-		radius: 15,
-	});
-	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
-});
+}
