@@ -8,10 +8,7 @@ var user    = require('./routes/user');
 var http    = require('http');
 var path    = require('path');
 
-var mongo   = require('mongodb');
-var monk    = require('monk');
 var request = require('request');
-var db      = monk('localhost:27017/nodetest');
 
 var app     = express();
 
