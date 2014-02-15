@@ -30,6 +30,16 @@ $(document).ready(function(){
 	windowUpdate();
 
 	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
+	
+	if ($(window).innerWidth() < 481) { // Resize the image based on initial screen width
+		$("img.gear").attr("src", "/images/gear.png");
+	} else if ($(window).innerWidth() < 768) {
+		$("img.gear").attr("src", "/images/gear@768.png");
+	} else if ($(window).innerWidth() < 1030) {
+		$("img.gear").attr("src", "/images/gear@1030.png");
+	} else {
+		$("img.gear").attr("src", "/images/gear@2x.png");
+	}
 
 	$(window).resize(function() {
 		windowUpdate();
