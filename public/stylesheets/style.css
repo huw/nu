@@ -36,8 +36,6 @@ h1 { /* Sets default header style */
 	color      : #FFF;
 }
 
-/******************************* MEDIA QUERIES ******/
-
 /******************************* HEADER SECTION ******/
 .header {
 	background: #C1CED6;
@@ -46,13 +44,13 @@ h1 { /* Sets default header style */
 	color: #D9723C;
 }
 .header h1 {
-	font-size  : 15em;
+	font-size  : 7em;
 	text-align : center;
 	padding-top: 2%;
 	line-height: 0.8;
 }
 .header p {
-	font-size     : 2.8em;
+	font-size     : 1.3em;
 	text-align    : center;
 	padding-bottom: 3%;
 	position      : relative;
@@ -124,4 +122,43 @@ div#me div.rightcol h1 {
 div#me div.rightcol p {
 	font-size  : 1.7em;
 	line-height: 1.3;
+}
+
+/******************************* MEDIA QUERIES ******/
+/* Remember, JQuery is only for cool scrolly stuff and making divs 100% height */
+
+@media only screen and (min-width: 481px) { /* Large phones */
+	.header h1 {
+		font-size: 11em;
+	}
+	.header p {
+		font-size: 2em;
+	}
+}
+
+@media only screen and (min-width: 768px) { /* Tablet, small laptops */
+	.header h1 {
+		font-size: 13em;
+	}
+	.header p {
+		font-size: 2.5em;
+	}
+}
+
+@media only screen and (min-width: 1030px) { /* Desktop, larger laptops */
+	.header h1 {
+		font-size: 15em;
+	}
+	.header p {
+		font-size: 2.8em;
+	}
+}
+
+@media only screen and (min-width: 1240px) { /* Large screens */
+
+}
+
+/* Retina displays below */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+
 }
