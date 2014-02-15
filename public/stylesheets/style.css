@@ -90,8 +90,6 @@ div#me {
 	color         : #FFF;
 	clear         : both;
 	padding-bottom: 8%;
-}
-div.mebg {
 	background: url('/images/cover.jpg');
 }
 div#me div.leftcol {
