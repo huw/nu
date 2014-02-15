@@ -40,10 +40,4 @@ var windowUpdate = function() {
 	/* Dimensions */
 	$(".header").css("height", $(window).innerHeight());
 	$("img.gear").css("height", $(window).innerHeight()*0.8);
-
-	/* Font Sizes */
-	$(".header p").css("font-size", $(window).innerHeight()*0.052)
-	$(".header h1").css("font-size", $(window).innerHeight()*0.28)
-	$("#me h1").css("font-size", $(window).innerHeight()*0.1)
-	$("#me .rightcol p").css("font-size", $(window).innerHeight()*0.03)
 }

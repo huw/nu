@@ -36,6 +36,8 @@ h1 { /* Sets default header style */
 	color      : #FFF;
 }
 
+/******************************* MEDIA QUERIES ******/
+
 /******************************* HEADER SECTION ******/
 .header {
 	background: #C1CED6;
