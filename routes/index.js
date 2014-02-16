@@ -9,7 +9,7 @@ exports.index = function(req, res){
 	var request  = require('request');
 
 	var birthday    = +new Date("1999-04-28");
-	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1;
+	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1; // Divides time alive by years and adds 1
 	var redditKarma;
 
 	request('https://www.reddit.com/user/3vans/about.json', function (error, response, body) {
@@ -21,12 +21,7 @@ exports.index = function(req, res){
                 "age"        : age,
                 "redditKarma": redditKarma
             });
-		} else {
-            res.render('index', {
-                "age"        : age,
-                "redditKarma": "~9000"
-            });
-        }
+		}
 	});
 };
 
