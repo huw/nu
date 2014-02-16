@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-    console.log("\033[90mIP: \033[32m"+req.ip);
+    console.log("\033[90mIP: \033[32m"+req.ip+"\033[31m");
 
 	var request  = require('request');
 
@@ -21,6 +21,11 @@ exports.index = function(req, res){
                 "age"        : age,
                 "redditKarma": redditKarma
             });
+		} else {
+			res.render('index', {
+				"age"        : age,
+				"redditKarma": "~9000"
+			});
 		}
 	});
 };
