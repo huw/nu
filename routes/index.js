@@ -7,6 +7,7 @@ exports.index = function(req, res){
     console.log("\033[90mIP: \033[32m"+req.ip+"\033[31m");
 
 	var request  = require('request');
+    var async    = require('async');
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 	var birthday    = +new Date("1999-04-28");
@@ -20,52 +21,62 @@ exports.index = function(req, res){
         }
     };
 
-    var reddit = function (error, response, body) {
+    function reddit(error, response, body) {
         if (error) throw error;
         if (response.statusCode == 200) {
             redditKarma = JSON.parse(body);
             redditKarma = parseInt(redditKarma.data.link_karma) + parseInt(redditKarma.data.comment_karma);
+
+            request(gitHubOptions, github);
         } else {
             redditKarma = "~9000";
+
+            request(gitHubOptions, github);
         }
     }
 
-    var github = function (error, response, body) {
+    function github(error, response, body) {
         if (error) throw error;
         if (response.statusCode == 200) {
-            console.log('200 recieved');
             var gitRepos = JSON.parse(body);
 
-            for (i = 0; i < gitRepos.length; i++) {
+            async.each(gitRepos, function (item, callback) {
                 var gitHubOptions = {
-                    'url'    : gitRepos[i].url + "/stats/contributors",
+                    'url'    : item.url + "/stats/contributors",
                     'headers': {
                         'User-Agent': 'huw'
                     }
                 };
 
-                request(gitHubOptions, gitStats);
-            }
+                request(gitHubOptions, function (error, response, body) {
+                    if (error) throw error;
+                    if (response.statusCode == 200) {
+                        gitCommits += JSON.parse(body)[0].total;
+                        callback();
+                    } else {
+                        gitCommits = "???";
+                        callback();
+                    }
+                });
+            }, _final(age, redditKarma, gitCommits));
         } else {
             console.log("Error " + response.statusCode + ": " + response.body);
         }
     }
 
-    var gitStats = function (error, response, body) {
-        if (error) throw error;
-        if (response.statusCode == 200) {
-            gitCommits += JSON.parse(body)[0].total
-        }
+    function _final(_age, _redditKarma, _gitCommits) {
+        res.render('index', {
+            "age"        : _age,
+            "redditKarma": _redditKarma,
+            "gitCommits" : _gitCommits
+        });
     }
 
-    request(gitHubOptions, github);
-	request('https://www.reddit.com/user/3vans/about.json', reddit);
+    function perform() {
+        request('https://www.reddit.com/user/3vans/about.json', reddit);
+    }
 
-    res.render('index', {
-        "age"        : age,
-        "redditKarma": redditKarma,
-        "gitCommits" : gitCommits
-    });
+    perform();
 };
 
 /*exports.userlist = function(db) {

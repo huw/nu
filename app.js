@@ -9,6 +9,7 @@ var http    = require('http');
 var path    = require('path');
 
 var request = require('request');
+var async   = require('async');
 
 var app     = express();
 
