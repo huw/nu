@@ -20,7 +20,17 @@ exports.index = function(req, res){
         }
     };
 
-    request(gitHubOptions, function (error, response, body) {
+    var reddit = function (error, response, body) {
+        if (error) throw error;
+        if (response.statusCode == 200) {
+            redditKarma = JSON.parse(body);
+            redditKarma = parseInt(redditKarma.data.link_karma) + parseInt(redditKarma.data.comment_karma);
+        } else {
+            redditKarma = "~9000";
+        }
+    }
+
+    var github = function (error, response, body) {
         if (error) throw error;
         if (response.statusCode == 200) {
             console.log('200 recieved');
@@ -34,35 +44,28 @@ exports.index = function(req, res){
                     }
                 };
 
-                request(gitHubOptions, function (error, response, body) {
-                    if (error) throw error;
-                    if (response.statusCode == 200) {
-                        gitCommits += JSON.parse(body)[0].total
-                    }
-                });
+                request(gitHubOptions, gitStats);
             }
         } else {
             console.log("Error " + response.statusCode + ": " + response.body);
         }
-    });
+    }
 
-	request('https://www.reddit.com/user/3vans/about.json', function (error, response, body) {
-		if (error) throw error;
+    var gitStats = function (error, response, body) {
+        if (error) throw error;
         if (response.statusCode == 200) {
-			redditKarma = JSON.parse(body);
-			redditKarma = parseInt(redditKarma.data.link_karma) + parseInt(redditKarma.data.comment_karma);
+            gitCommits += JSON.parse(body)[0].total
+        }
+    }
 
-            res.render('index', {
-                "age"        : age,
-                "redditKarma": redditKarma
-            });
-		} else {
-			res.render('index', {
-				"age"        : age,
-				"redditKarma": "~9000"
-			});
-		}
-	});
+    request(gitHubOptions, github);
+	request('https://www.reddit.com/user/3vans/about.json', reddit);
+
+    res.render('index', {
+        "age"        : age,
+        "redditKarma": redditKarma,
+        "gitCommits" : gitCommits
+    });
 };
 
 /*exports.userlist = function(db) {
