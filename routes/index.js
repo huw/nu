@@ -40,7 +40,10 @@ exports.index = function(req, res){
         if (response.statusCode == 200) {
             var gitRepos = JSON.parse(body);
 
-            async.each(gitRepos, function (item, callback) {
+            async.eachSeries (gitRepos, function (item, callback) {
+                console.log("For loop iterates");
+                callback();
+
                 var gitHubOptions = {
                     'url'    : item.url + "/stats/contributors",
                     'headers': {
@@ -52,19 +55,29 @@ exports.index = function(req, res){
                     if (error) throw error;
                     if (response.statusCode == 200) {
                         gitCommits += JSON.parse(body)[0].total;
-                        callback();
-                    } else {
-                        gitCommits = "???";
-                        callback();
+                        callback(null, gitCommits);
                     }
                 });
-            }, _final(age, redditKarma, gitCommits));
+            }, function (err, _gitCommits) {
+                console.log("finishing loop");
+                res.render('index', {
+                    "age"        : age,
+                    "redditKarma": redditKarma,
+                    "gitCommits" : _gitCommits
+                })
+            });
         } else {
             console.log("Error " + response.statusCode + ": " + response.body);
+            res.render('index', {
+                "age"        : age,
+                "redditKarma": redditKarma,
+                "gitCommits" : "~27"
+            });
         }
     }
 
     function _final(_age, _redditKarma, _gitCommits) {
+        console.log("final definitely called");
         res.render('index', {
             "age"        : _age,
             "redditKarma": _redditKarma,
