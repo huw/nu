@@ -42,7 +42,6 @@ exports.index = function(req, res){
 
             async.eachSeries (gitRepos, function (item, callback) {
                 console.log("For loop iterates");
-                callback();
 
                 var gitHubOptions = {
                     'url'    : item.url + "/stats/contributors",
@@ -55,15 +54,16 @@ exports.index = function(req, res){
                     if (error) throw error;
                     if (response.statusCode == 200) {
                         gitCommits += JSON.parse(body)[0].total;
-                        callback(null, gitCommits);
+			console.log(gitCommits);
+                        callback(null);
                     }
                 });
-            }, function (err, _gitCommits) {
+            }, function (err) {
                 console.log("finishing loop");
                 res.render('index', {
                     "age"        : age,
                     "redditKarma": redditKarma,
-                    "gitCommits" : _gitCommits
+                    "gitCommits" : gitCommits
                 })
             });
         } else {
