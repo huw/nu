@@ -54,6 +54,7 @@ h1 { /* Sets default header style */
 	text-align    : center;
 	padding-bottom: 2%;
 	position      : relative;
+	width         : 100%;
 	z-index       : 2;
 }
 .header img.gear {
@@ -62,6 +63,8 @@ h1 { /* Sets default header style */
 	display          : block;
 	margin           : 0 auto;
 	position         : relative;
+	overflow         : hidden;
+	float            : center;
 	z-index          : 1;
 	animation        : rotate-gear 360s linear infinite; /* Animate! */
 	-webkit-animation: rotate-gear 360s linear infinite;
@@ -142,6 +145,13 @@ div#me div.rightcol p {
 	}
 	.header p {
 		font-size: 2.5em;
+	}
+
+	div#me div.rightcol h1 {
+		font-size: 5em;
+	}
+	div#me div.rightcol p {
+		font-size: 1.5em;
 	}
 }
 

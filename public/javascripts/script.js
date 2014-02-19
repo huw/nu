@@ -52,13 +52,15 @@ $(document).ready(function(){
 
 var windowUpdate = function() {
 	/* Dimensions */
-	$(".header").css("height", $(window).innerHeight());
-
 	if ($(window).innerWidth() > $(window).innerHeight()) {
 		$("img.gear").css("height", $(window).innerHeight()*0.8);
 		$("img.gear").css("width", "auto");
+
+		$(".header").css("height", $(window).innerHeight());
 	} else {
-		$("img.gear").css("width", $(window).innerWidth()*0.95);
+		$("img.gear").css("width", $(window).innerWidth()*0.8);
 		$("img.gear").css("height", "auto");
+
+		$(".header").css("height", $(window).innerWidth());
 	}
 }
