@@ -63,7 +63,8 @@ exports.index = function(req, res){
                 res.render('index', {
                     "age"        : age,
                     "redditKarma": redditKarma,
-                    "gitCommits" : gitCommits
+                    "gitCommits" : gitCommits,
+                    "apiKey"     : ""
                 })
             });
         } else {
@@ -71,18 +72,10 @@ exports.index = function(req, res){
             res.render('index', {
                 "age"        : age,
                 "redditKarma": redditKarma,
-                "gitCommits" : "~27"
+                "gitCommits" : "~30",
+                "apiKey"     : ""
             });
         }
-    }
-
-    function _final(_age, _redditKarma, _gitCommits) {
-        console.log("final definitely called");
-        res.render('index', {
-            "age"        : _age,
-            "redditKarma": _redditKarma,
-            "gitCommits" : _gitCommits
-        });
     }
 
     function perform() {

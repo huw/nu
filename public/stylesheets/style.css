@@ -123,6 +123,14 @@ div#me div.rightcol p {
 	line-height: 1.3;
 }
 
+/******************************* CHAT SECTION ******/
+div#chat {
+	height: 800px;
+}
+div#chat div#map {
+	height: 100%;
+}
+
 /******************************* MEDIA QUERIES ******/
 /* Remember, JQuery is only for cool scrolly stuff and making divs 100% height */
 

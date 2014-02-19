@@ -64,3 +64,13 @@ var windowUpdate = function() {
 		$(".header").css("height", $(window).innerWidth()+20);
 	}
 }
+
+/* Google Maps API */
+function initialize() {
+	var mapOptions = {
+		center: new google.maps.LatLng(-33.855, 151.208),
+		zoom: 14
+	};
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
