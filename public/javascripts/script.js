@@ -61,6 +61,6 @@ var windowUpdate = function() {
 		$("img.gear").css("width", $(window).innerWidth()*0.8);
 		$("img.gear").css("height", "auto");
 
-		$(".header").css("height", $(window).innerWidth());
+		$(".header").css("height", $(window).innerWidth()+20);
 	}
 }
