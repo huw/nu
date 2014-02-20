@@ -1,6 +1,15 @@
 #My personal website
 I figured I would need a useful webpage to show off myself and my programming experience to the web. It is set up with multiple sections for different purposes, which provide an introduction, then contact methods, and finally a portfolio.
 
+##How to build
+Install nodejs, clone the repo and type in a terminal:
+'''sudo npm install -g express'''
+then 
+'''sudo npm install'''
+(Remove the sudo if you're on windows)
+
+After that, copy the file settings.json.eg to settings.json, and put your API key for the Google Maps Javascript API v3 (or above) between the quotes. Normal JSON.
+
 ##Splash page
 The splash page includes anchor links which smooth scroll down to the sections of the page. Also there is the infinitely rotating gear, more of an aesthetic filler than anything else.
 
