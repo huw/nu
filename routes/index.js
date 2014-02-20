@@ -4,21 +4,16 @@
  */
 
 exports.index = function(req, res){
-    /* GOOGLE MAPS API KEY GOES BELOW
-    IT IS IMPORTANT TO REMEMBER TO REMOVE IT
-    BEFORE PUSHING A COMMIT, AND TO ADD
-    IT BEFORE RESTARTING AFTER A PULL */
-    var apiKey = "";
-
     console.log("\033[90mIP: \033[32m"+req.ip+"\033[31m");
 
 	var request  = require('request');
     var async    = require('async');
+    var fs       = require('fs');
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 	var birthday    = +new Date("1999-04-28");
 	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1; // Divides time alive by years and adds 1
-	var redditKarma, gitCommits = 0;
+	var redditKarma, gitCommits, apiKey = 0;
 
     var gitHubOptions = {
         'url'    : 'https://api.github.com/users/huw/repos',
@@ -26,6 +21,15 @@ exports.index = function(req, res){
             'User-Agent': 'huw'
         }
     };
+
+    fs.readFile('settings.json', function (err, data) {
+        if (err) throw err;
+        apiKey = JSON.parse(data).apiKey;
+    });
+
+    if (apiKey == 0) {
+        console.log("apiKey is not defined! Remember to make a settings.json file!");
+    }
 
     function reddit(error, response, body) {
         if (error) throw error;
