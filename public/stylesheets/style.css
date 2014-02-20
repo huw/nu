@@ -89,15 +89,15 @@ h1 { /* Sets default header style */
 }
 
 /******************************* ME SECTION ******/
-div#me {
+#me {
 	color          : #FFF;
 	clear          : both;
 	background     : url('/images/cover.jpg');
 }
-div#me div.leftcol {
+#me .leftcol {
 	padding: 10% 0;
 }
-div#me div.leftcol img {
+#me .leftcol img {
 	margin       : 0 auto;
 	display      : block;
 	border       : 10px solid #FFF;
@@ -105,29 +105,29 @@ div#me div.leftcol img {
 	margin-bottom: 8px;
 	width        : 40%;
 }
-div#me div.leftcol p {
+#me .leftcol p {
 	text-align : center;
 	font-weight: 900;
 	font-size  : 1.2em;
 }
-div#me div.rightcol {
+#me .rightcol {
 	vertical-align: top;
 	text-align    : center;
 	padding-bottom: 8%;
 }
-div#me div.rightcol h1 {
+#me .rightcol h1 {
 	font-size: 4em;
 }
-div#me div.rightcol p {
+#me .rightcol p {
 	font-size  : 1.2em;
 	line-height: 1.3;
 }
 
 /******************************* CHAT SECTION ******/
-div#chat {
-	height: 800px;
+#chat {
+	height: 720px;
 }
-div#chat div#map {
+#chat #map {
 	height: 100%;
 }
 
@@ -142,13 +142,13 @@ div#chat div#map {
 		font-size: 2em;
 	}
 
-	div#me div.rightcol h1 {
+	#me .rightcol h1 {
 		font-size: 4.5em;
 	}
-	div#me div.rightcol p {
+	#me .rightcol p {
 		font-size: 1.4em;
 	}
-	div#me div.leftcol img {
+	#me .leftcol img {
 		border-width: 15px;
 	}
 }
@@ -161,10 +161,10 @@ div#chat div#map {
 		font-size: 2.5em;
 	}
 
-	div#me div.rightcol h1 {
+	#me .rightcol h1 {
 		font-size: 6em;
 	}
-	div#me div.rightcol p {
+	#me .rightcol p {
 		font-size: 1.5em;
 	}
 }
@@ -177,34 +177,34 @@ div#chat div#map {
 		font-size: 2.8em;
 	}
 
-	div#me {
+	#me {
 		background-size: 100%;
 	}
-	div#me div.leftcol img {
+	#me .leftcol img {
 		width: 90%;
 	}
 
-	div#me div.leftcol {
+	#me .leftcol {
 		padding-left: 8%;
 		width       : 30%;
 	}
-	div#me div.rightcol {
+	#me .rightcol {
 		padding-left  : 2%;
 		padding-right : 8%;
 		padding-top   : 11%;
 		padding-bottom: 0;
 		text-align    : left;
 	}
-	div#me div.leftcol, div#me div.rightcol {
+	#me > div {
 		display: inline-block;
 	}
 }
 
 @media only screen and (min-width: 1240px) { /* Large screens */
-	div#me div.rightcol h1 {
+	#me .rightcol h1 {
 		font-size: 7.6em;
 	}
-	div#me div.rightcol p {
+	#me .rightcol p {
 		font-size  : 1.9em;
 		line-height: 1.9;
 	}

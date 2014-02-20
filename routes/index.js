@@ -4,6 +4,12 @@
  */
 
 exports.index = function(req, res){
+    /* GOOGLE MAPS API KEY GOES BELOW
+    IT IS IMPORTANT TO REMEMBER TO REMOVE IT
+    BEFORE PUSHING A COMMIT, AND TO ADD
+    IT BEFORE RESTARTING AFTER A PULL */
+    var apiKey = "";
+
     console.log("\033[90mIP: \033[32m"+req.ip+"\033[31m");
 
 	var request  = require('request');
@@ -64,7 +70,7 @@ exports.index = function(req, res){
                     "age"        : age,
                     "redditKarma": redditKarma,
                     "gitCommits" : gitCommits,
-                    "apiKey"     : ""
+                    "apiKey"     : apiKey
                 })
             });
         } else {
@@ -72,8 +78,8 @@ exports.index = function(req, res){
             res.render('index', {
                 "age"        : age,
                 "redditKarma": redditKarma,
-                "gitCommits" : "~30",
-                "apiKey"     : ""
+                "gitCommits" : "~31",
+                "apiKey"     : apiKey
             });
         }
     }
