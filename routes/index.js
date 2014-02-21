@@ -13,7 +13,8 @@ exports.index = function(req, res){
 
 	var birthday    = +new Date("1999-04-28");
 	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1; // Divides time alive by years and adds 1
-	var redditKarma, gitCommits, apiKey = 0;
+	var redditKarma, gitCommits = 0;
+    var apiKey;
 
     var gitHubOptions = {
         'url'    : 'https://api.github.com/users/huw/repos',
@@ -24,11 +25,21 @@ exports.index = function(req, res){
 
     fs.readFile('settings.json', function (err, data) {
         if (err) throw err;
-        apiKey = JSON.parse(data).apiKey;
+        data   = JSON.parse(data);
+        apiKey = data.apiKey;
+        
+        if (apiKey == null) {
+            console.log("apiKey is not defined! Remember to make a settings.json file!");
+        }
     });
 
-    if (apiKey == 0) {
-        console.log("apiKey is not defined! Remember to make a settings.json file!");
+    function render() {
+        res.render('index', {
+            "age"        : age,
+            "redditKarma": redditKarma,
+            "gitCommits" : gitCommits,
+            "apiKey"     : apiKey
+        })
     }
 
     function reddit(error, response, body) {
@@ -39,7 +50,7 @@ exports.index = function(req, res){
 
             request(gitHubOptions, github);
         } else {
-            redditKarma = "~9000";
+            redditKarma = "~10000";
 
             request(gitHubOptions, github);
         }
@@ -51,7 +62,6 @@ exports.index = function(req, res){
             var gitRepos = JSON.parse(body);
 
             async.eachSeries (gitRepos, function (item, callback) {
-                console.log("For loop iterates");
 
                 var gitHubOptions = {
                     'url'    : item.url + "/stats/contributors",
@@ -64,27 +74,16 @@ exports.index = function(req, res){
                     if (error) throw error;
                     if (response.statusCode == 200) {
                         gitCommits += JSON.parse(body)[0].total;
-			console.log(gitCommits);
                         callback(null);
                     }
                 });
             }, function (err) {
-                console.log("finishing loop");
-                res.render('index', {
-                    "age"        : age,
-                    "redditKarma": redditKarma,
-                    "gitCommits" : gitCommits,
-                    "apiKey"     : apiKey
-                })
+                render();
             });
         } else {
             console.log("Error " + response.statusCode + ": " + response.body);
-            res.render('index', {
-                "age"        : age,
-                "redditKarma": redditKarma,
-                "gitCommits" : "~31",
-                "apiKey"     : apiKey
-            });
+            gitCommits = "~36"
+            render();
         }
     }
 
