@@ -2,6 +2,8 @@ doctype html
 html
 	head
 		title= title
+		link(rel='stylesheet', href='/stylesheets/fontawesome.css')
+		link(rel='stylesheet', href='/stylesheets/fontawesome-ie7.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
 		script(src='https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&sensor=false')
@@ -34,10 +36,28 @@ html
 					p
 						='Gained ' + redditKarma + ' Reddit Karma'
 			div#chat
-				div#map
-				div.chatbox
-					h1 Chat
+				div.findme
+					h1 Find Me Here
 					ul
-						li 1
-						li 2
-						li 3
+						li
+							span.icon-github
+							a(href="https://github.com/huw") /huw
+						li
+							span.icon-facebook
+							a(href="https://facebook.com/huw3vans") /huw3vans
+						li
+							span.icon-gplus
+							a(href="https://plus.google.com/+HuwEvansThePerson") +HuwEvansThePerson
+						li
+							span.icon-twitter
+							a(href="https://twitter.com/huwtheperson") @huwtheperson
+						li
+							span.icon-youtube
+							a(href="https://www.youtube.com/channel/UC_WTuhxUHF19xnp9MDvS15g") Huw Evans
+						li
+							span.icon-medium M
+							a(href="https://medium.com/huwtheperson") @huwtheperson
+						li
+							span.icon-reddit
+							a(href="http://www.reddit.com/u/3vans") /u/3vans
+				div#map

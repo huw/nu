@@ -90,9 +90,9 @@ h1 { /* Sets default header style */
 
 /******************************* ME SECTION ******/
 #me {
-	color          : #FFF;
-	clear          : both;
-	background     : url('/images/cover.jpg');
+	color     : #FFF;
+	clear     : both;
+	background: url('/images/cover.jpg');
 }
 #me .leftcol {
 	padding: 10% 0;
@@ -125,10 +125,33 @@ h1 { /* Sets default header style */
 
 /******************************* CHAT SECTION ******/
 #chat {
-	height: 720px;
+    position: relative;
 }
 #chat #map {
-	height: 100%;
+    height: 100%;
+}
+#chat .findme {
+	padding   : 2%;
+	background: #3F95C9;
+	text-align: center;
+	border    : 10px solid #29328A;
+}
+#chat .findme h1 {
+	font-size: 4em;
+}
+#chat .findme li {
+	font-size  : 1.7em;
+	line-height: 1.5;
+}
+#chat .findme a {
+	color          : #fff;
+	font-weight    : 600;
+	text-decoration: none;
+}
+.icon-medium {
+	margin-right: 5px;
+	font-family : "Georgia";
+	font-weight : 900;
 }
 
 /******************************* MEDIA QUERIES ******/

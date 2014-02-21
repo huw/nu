@@ -24,25 +24,31 @@ function countdown() {
     $(".replace").text(distance);
 }
 
-timer = setInterval(countdown, 1000);
+timer = setInterval(countdown, 1000); // Start timer
 
-/* Google Maps API */
-function initialize() {
-	var mapOptions = {
-		center           : new google.maps.LatLng(-33.855, 151.208),
-		zoom             : 14,
-		panControl       : false,
-		mapTypeControl   : false,
-		streetViewControl: false,
-		scrollwheel      : false,
+var windowUpdate = function() {
+	/* Dimensions */
+	if ($(window).innerWidth() > $(window).innerHeight()) {
+		$("img.gear").css("height", $(window).innerHeight()*0.8);
+		$("img.gear").css("width", "auto");
 
-		styles: [{"featureType":"water","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]},{"featureType":"landscape","stylers":[{"color":"#f2e5d4"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"administrative","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"road"},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":20}]}]
-	};
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		$(".header").css("height", $(window).innerHeight());
+	} else {
+		$("img.gear").css("width", $(window).innerWidth()*0.8);
+		$("img.gear").css("height", "auto");
+
+		$(".header").css("height", $(window).innerWidth()+20);
+	}
+
+	if ($(window).innerWidth() > 1030) {
+		$("#chat > #map").css("height", $(window).innerHeight());
+	} else {
+		$("#chat > #map").css("height", $(window).innerHeight() * 0.6);
+	}
 }
-google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
+	/* JQuery stuff */
 	windowUpdate();
 
 	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
@@ -61,24 +67,33 @@ $(document).ready(function(){
 		$("img.gear").attr("src", "/images/gear@full.png");
 	}
 
+	/* Google Maps API */
+	var mapZoom;
+	function initialize() {
+		if ($(window).innerWidth() > 1030) {
+			mapZoom = 14;
+		} else if ($(window).innerWidth() > 768) {
+			mapZoom = 13.5;
+		} else {
+			mapZoom = 13;
+		}
+		var mapOptions = {
+			center           : new google.maps.LatLng(-33.855, 151.208),
+			zoom             : 13,
+			panControl       : false,
+			mapTypeControl   : false,
+			streetViewControl: false,
+			scrollwheel      : false,
+
+			styles: [{"featureType":"water","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]},{"featureType":"landscape","stylers":[{"color":"#f2e5d4"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"administrative","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"road"},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{},{"featureType":"road","stylers":[{"lightness":20}]}]
+		};
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	map.setZoom(mapZoom);
+
+	/* Resize elements when window is resized */
 	$(window).resize(function() {
 		windowUpdate();
 	});
 });
-
-var windowUpdate = function() {
-	/* Dimensions */
-	if ($(window).innerWidth() > $(window).innerHeight()) {
-		$("img.gear").css("height", $(window).innerHeight()*0.8);
-		$("img.gear").css("width", "auto");
-
-		$(".header").css("height", $(window).innerHeight());
-	} else {
-		$("img.gear").css("width", $(window).innerWidth()*0.8);
-		$("img.gear").css("height", "auto");
-
-		$(".header").css("height", $(window).innerWidth()+20);
-	}
-
-	$("#chat > #map").css("height", $(window).innerHeight());
-}
