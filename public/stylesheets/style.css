@@ -167,10 +167,10 @@ h1 { /* Sets default header style */
 
 /******************* CREATIONS SECTION ******/
 #creations .monstercat {
-	background: #00bbff;
+	background: url('/images/monstercat.jpg');
 }
 #creations .score {
-	background: #aa22ff;
+	background: url('/images/score.jpg');
 }
 
 /******************************* MEDIA QUERIES ******/
