@@ -27,9 +27,6 @@ p, h2, h3, h4, h5, h6, span, li, td { /* Normalises Fonts */
 	font-weight: 300;
 	color      : #FFF;
 }
-.bold { /* Sets bold style (in case <b> doesn't cut it) */
-	font-weight: 900;
-}
 h1 { /* Sets default header style */
 	font-family: 'Raleway', arial;
 	font-weight: 100;
@@ -69,7 +66,7 @@ h1 { /* Sets default header style */
 	animation        : rotate-gear 360s linear infinite; /* Animate! */
 	-webkit-animation: rotate-gear 360s linear infinite;
 }
-@keyframes rotate-gear {
+@keyframes rotate-gear { /* Spin the gear */
 	from {
 		transform    : rotate(0deg);
 		-ms-transform: rotate(0deg);
@@ -101,7 +98,7 @@ h1 { /* Sets default header style */
 	margin       : 0 auto;
 	display      : block;
 	border       : 10px solid #FFF;
-	box-shadow   : 0px 10px 8px 0px rgba(0, 0, 0, .5);
+	box-shadow   : 0px 10px 8px 0px rgba(0, 0, 0, .5); /* Make it look like a picture */
 	margin-bottom: 8px;
 	width        : 40%;
 }
@@ -149,7 +146,7 @@ h1 { /* Sets default header style */
 	font-weight    : 600;
 	text-decoration: none;
 }
-.icon-medium {
+.icon-medium { /* There is no Medium icon, so we have to make do */
 	margin: 0 5px;
 	font-family : "Georgia";
 	font-weight : 900;
@@ -220,19 +217,23 @@ h1 { /* Sets default header style */
 		text-align    : left;
 	}
 	#me > div {
-		display: inline-block;
+		display: inline-block; /* Position the right column alongside the left */
 	}
 
 	#chat #map {
-		display: block;
+		display: block; /* We're on a bigger device so view the map */
 	}
 	#chat .findme {
-		position: absolute;
+		position: absolute; /* Put the box on the side of it */
 		z-index : 3;
 		right   : 40px;
 		top     : 40px;
 	}
-	#chat .findme ul {
+	#chat .findme h1 {
+		font-size: 4em;
+	}
+	#chat .findme li {
+		font-size : 1.5em;
 		text-align: left;
 	}
 }

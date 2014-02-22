@@ -8,12 +8,13 @@ var user    = require('./routes/user');
 var http    = require('http');
 var path    = require('path');
 
+// Import my dependencies
 var request = require('request');
 var async   = require('async');
 
 var app     = express();
 
-// all environments
+// All environments
 app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -29,9 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.enable('trust proxy');
 
-// development only
+// Development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+ 	app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);

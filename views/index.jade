@@ -1,14 +1,19 @@
 doctype html
 html
 	head
-		title= title
+		title Huw
+		//- Import Icon Font
 		link(rel='stylesheet', href='/stylesheets/fontawesome.css')
 		link(rel='stylesheet', href='/stylesheets/fontawesome-ie7.css')
+
 		link(rel='stylesheet', href='/stylesheets/style.css')
-		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
+
+		//- Import Jquery, Google Maps
 		script(src='https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&sensor=false')
 		script(src='http://jquery-textfill.github.io/jquery-textfill/jquery.textfill.min.js')
+
 		script(src='/javascripts/script.js')
+
 		// All source available @ github.com/huw/personal-site
 	body
 		div.header
@@ -61,4 +66,5 @@ html
 						li
 							span.icon-reddit
 							a(href="http://www.reddit.com/u/3vans") /u/3vans
+				//- Google Maps goes in this one
 				div#map
