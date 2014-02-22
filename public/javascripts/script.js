@@ -1,4 +1,4 @@
-/* Smooth Scrolling */
+/******************************* SMOOTH SCROLLING ******/
 $(function() {
 	$('a[href*=#]:not([href=#])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -14,6 +14,8 @@ $(function() {
 	});
 });
 
+/******************************* TIMER ******/
+
 var end = new Date('04/28/2014 4:00 AM');
 var timer;
 
@@ -26,19 +28,25 @@ function countdown() {
 
 timer = setInterval(countdown, 1000); // Start timer
 
+/******************************* JQUERY ******/
+$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
+
+
+var headerHeight;
+
 var windowUpdate = function() {
-	/* Dimensions */
 	if ($(window).innerWidth() > $(window).innerHeight()) {
+		headerHeight = $(window).innerHeight();
+
 		$("img.gear").css("height", $(window).innerHeight()*0.8);
 		$("img.gear").css("width", "auto");
-
-		$(".header").css("height", $(window).innerHeight());
 	} else {
+		headerHeight = $(window).innerWidth() + 40;
+
 		$("img.gear").css("width", $(window).innerWidth()*0.8);
 		$("img.gear").css("height", "auto");
-
-		$(".header").css("height", $(window).innerWidth()+20);
 	}
+	$(".header").css("height", headerHeight);
 
 	if ($(window).width() > 1020) {
 		$("#chat > #map").css("height", $(".findme").innerHeight() + 100);
@@ -48,10 +56,7 @@ var windowUpdate = function() {
 }
 
 $(document).ready(function(){
-	/* JQuery stuff */
 	windowUpdate();
-
-	$("#me .leftcol img").attr("src", "http://www.gravatar.com/avatar/9531a7acf89bad418f44ab0f695f6c9c?s=" + $(window).innerWidth()*0.27) // Only gets the image size which we initially need
 	
 	if ($(window).innerHeight()*0.8 < 240) { // Resize the image based on initial screen width
 		$("img.gear").attr("src", "/images/gear.png");
@@ -72,18 +77,11 @@ $(document).ready(function(){
 		windowUpdate();
 	});
 
-	/* Google Maps API */
-	var mapCenter;
-	function initialize() {
-		if ($(window).innerWidth() > 1020) {
-			mapCenter = new google.maps.LatLng(-33.865, 151.278);
-		} else {
-			mapCenter = new google.maps.LatLng(-33.865, 151.208);
-		}
+	/******************************* GOOGLE MAPS ******/
+	if ($(window).innerWidth() > 1030) {
 		var mapOptions = {
-			center           : mapCenter,
+			center           : new google.maps.LatLng(-33.865, 151.278),
 			zoom             : 13,
-			zoomControl      : false,
 			panControl       : false,
 			mapTypeControl   : false,
 			streetViewControl: false,
@@ -91,7 +89,6 @@ $(document).ready(function(){
 
 			styles: [{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"off"}]},{"featureType":"administrative", "elementType":"labels.text.fill","stylers":[{"color":"#D9723C"}]}]
 		};
-		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	}
-	google.maps.event.addDomListener(window, 'load', initialize);
 });

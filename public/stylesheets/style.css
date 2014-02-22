@@ -128,7 +128,8 @@ h1 { /* Sets default header style */
     position: relative;
 }
 #chat #map {
-    height: 100%;
+	height : 100%;
+	display: none;
 }
 #chat .findme {
 	padding   : 2%;
@@ -178,28 +179,28 @@ h1 { /* Sets default header style */
 
 @media only screen and (min-width: 768px) { /* Tablet, small laptops */
 	.header h1 {
-		font-size: 13em;
+		font-size: 18em;
 	}
 	.header p {
-		font-size: 2.5em;
+		font-size: 3.4em;
 	}
 
 	#me .rightcol h1 {
-		font-size: 6em;
+		font-size: 8em;
 	}
 	#me .rightcol p {
 		font-size: 1.5em;
 	}
+
+	#chat .findme h1 {
+		font-size: 8em;
+	}
+	#chat .findme li {
+		font-size: 2em;
+	}
 }
 
 @media only screen and (min-width: 1030px) { /* Desktop, larger laptops */
-	.header h1 {
-		font-size: 15em;
-	}
-	.header p {
-		font-size: 2.8em;
-	}
-
 	#me {
 		background-size: 100%;
 	}
@@ -222,6 +223,9 @@ h1 { /* Sets default header style */
 		display: inline-block;
 	}
 
+	#chat #map {
+		display: block;
+	}
 	#chat .findme {
 		position: absolute;
 		z-index : 3;

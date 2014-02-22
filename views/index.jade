@@ -7,18 +7,19 @@ html
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
 		script(src='https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&sensor=false')
+		script(src='http://jquery-textfill.github.io/jquery-textfill/jquery.textfill.min.js')
 		script(src='/javascripts/script.js')
 		// All source available @ github.com/huw/personal-site
 	body
 		div.header
-			h1 HUW
-			p
-				a(href="#me") me
-				|  - 
-				a(href="#chat") chat
-				|  - 
-				a(href="#creations") creations
-			img.gear(src="/images/gear.png")
+				h1 HUW
+				p
+					a(href="#me") me
+					|  - 
+					a(href="#chat") chat
+					|  - 
+					a(href="#creations") creations
+				img.gear(src="/images/gear.png")
 		div.content
 			div#me
 				div.leftcol
