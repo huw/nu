@@ -83,12 +83,13 @@ $(document).ready(function(){
 		var mapOptions = {
 			center           : mapCenter,
 			zoom             : 13,
+			zoomControl      : false,
 			panControl       : false,
 			mapTypeControl   : false,
 			streetViewControl: false,
 			scrollwheel      : false,
 
-			styles: [{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"off"}]}]
+			styles: [{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"off"}]},{"featureType":"administrative", "elementType":"labels.text.fill","stylers":[{"color":"#D9723C"}]}]
 		};
 		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	}
