@@ -152,6 +152,19 @@ h1 { /* Sets default header style */
 	font-weight : 900;
 }
 
+/******************************* CREATIONS SECTION ******/
+#creations .stuffimade {
+	background-color: #D9723C;
+	text-align      : center;
+	padding         : 1% 0;
+}
+#creations .stuffimade h1 {
+	font-size: 4em;
+}
+#creations .stuffimade p {
+	font-size: 1.2em;
+}
+
 /******************************* MEDIA QUERIES ******/
 /* Remember, JQuery is only for cool scrolly stuff and making divs 100% height */
 
@@ -195,6 +208,10 @@ h1 { /* Sets default header style */
 	#chat .findme li {
 		font-size: 2em;
 	}
+
+	#creations .stuffimade h1 {
+		font-size: 8em;
+	}
 }
 
 @media only screen and (min-width: 1030px) { /* Desktop, larger laptops */
@@ -216,6 +233,12 @@ h1 { /* Sets default header style */
 		padding-bottom: 0;
 		text-align    : left;
 	}
+	#me .rightcol h1 {
+		font-size: 6em;
+	}
+	#me .rightcol p {
+		line-height: 1.7;
+	}
 	#me > div {
 		display: inline-block; /* Position the right column alongside the left */
 	}
@@ -235,6 +258,10 @@ h1 { /* Sets default header style */
 	#chat .findme li {
 		font-size : 1.5em;
 		text-align: left;
+	}
+
+	#creations .stuffimade h1 {
+		font-size: 4em;
 	}
 }
 
