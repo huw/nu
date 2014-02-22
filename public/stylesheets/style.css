@@ -165,6 +165,14 @@ h1 { /* Sets default header style */
 	font-size: 1.2em;
 }
 
+/******************* CREATIONS SECTION ******/
+#creations .monstercat {
+	background: #00bbff;
+}
+#creations .score {
+	background: #aa22ff;
+}
+
 /******************************* MEDIA QUERIES ******/
 /* Remember, JQuery is only for cool scrolly stuff and making divs 100% height */
 
