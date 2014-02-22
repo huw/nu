@@ -21,7 +21,7 @@ var timer;
 
 function countdown() {
     var now = new Date();
-    var distance = Math.floor((end - now) / 1000)
+    var distance = Math.floor((end - now) / 1000);
 
     $(".replace").text(distance); // Replace the text with the time in seconds
 }
