@@ -67,6 +67,11 @@ $(document).ready(function(){
 		$("img.gear").attr("src", "/images/gear@full.png");
 	}
 
+		/* Resize elements when window is resized */
+	$(window).resize(function() {
+		windowUpdate();
+	});
+
 	/* Google Maps API */
 	var mapZoom;
 	function initialize() {
@@ -91,9 +96,4 @@ $(document).ready(function(){
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 	map.setZoom(mapZoom);
-
-	/* Resize elements when window is resized */
-	$(window).resize(function() {
-		windowUpdate();
-	});
 });
