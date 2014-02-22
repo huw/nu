@@ -45,7 +45,7 @@ var windowUpdate = function() { // This is called every time the window resizes
 	}
 	$(".header").css("height", headerHeight);
 
-	if ($(window).width() > 1020) {
+	if ($(window).innerWidth() > 1012) {
 		$("#chat > #map").css("height", $(".findme").innerHeight() + 100); // Change map size based on page size
 	} else {
 		$("#chat > #map").css("height", $(window).innerHeight() * 0.6);
@@ -77,7 +77,7 @@ $(document).ready(function(){ // On page load
 	});
 
 	/******************************* GOOGLE MAPS ******/
-	if ($(window).innerWidth() > 1030) {
+	if ($(window).innerWidth() > 1012) {
 		var mapOptions = {
 			center           : new google.maps.LatLng(-33.865, 151.278),
 			zoom             : 13,
