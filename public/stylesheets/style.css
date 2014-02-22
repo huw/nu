@@ -140,7 +140,7 @@ h1 { /* Sets default header style */
 	font-size: 4em;
 }
 #chat .findme li {
-	font-size  : 1.7em;
+	font-size  : 1.6em;
 	line-height: 1.5;
 }
 #chat .findme a {
@@ -149,7 +149,7 @@ h1 { /* Sets default header style */
 	text-decoration: none;
 }
 .icon-medium {
-	margin-right: 5px;
+	margin: 0 5px;
 	font-family : "Georgia";
 	font-weight : 900;
 }
@@ -220,6 +220,16 @@ h1 { /* Sets default header style */
 	}
 	#me > div {
 		display: inline-block;
+	}
+
+	#chat .findme {
+		position: absolute;
+		z-index : 3;
+		right   : 40px;
+		top     : 40px;
+	}
+	#chat .findme ul {
+		text-align: left;
 	}
 }
 
