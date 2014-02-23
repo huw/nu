@@ -4,9 +4,9 @@
  */
 
 exports.index = function(req, res){
-    console.log("\033[90mIP: \033[32m"+req.ip+"\033[31m"); // Log connecting IP address
+    console.log("\033[90mIP: \033[32m" + req.ip + "\033[31m"); // Log connecting IP address
 
-	var request  = require('request'); // Import modules
+    var request  = require('request'); // Import modules
     var async    = require('async');
     var fs       = require('fs');
 
@@ -15,9 +15,9 @@ exports.index = function(req, res){
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
     // Define variables
-	var birthday    = +new Date("1999-04-28");
-	var age         = ~~((Date.now() - birthday) / (31557600000)) + 1; // Divides time alive by years and adds 1
-	var redditKarma, gitCommits = 0;
+    var birthday    = +new Date("1999-04-28");
+    var age         = ~~((Date.now() - birthday) / (31557600000)) + 1; // Divides time alive by years and adds 1
+    var redditKarma, gitCommits = 0;
     var apiKey;
 
     var gitHubOptions = { // Send some stuff to GitHub servers
