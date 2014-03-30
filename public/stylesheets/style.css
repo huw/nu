@@ -165,12 +165,30 @@ h1 { /* Sets default header style */
 	font-size: 1.2em;
 }
 
-/******************* CREATIONS SECTION ******/
 #creations .monstercat {
 	background: url('/images/monstercat.jpg');
 }
 #creations .score {
 	background: url('/images/score.jpg');
+}
+
+/******************************* FOOTER SECTION ******/
+.footer {
+	background-color: #C1CED6;
+	text-align      : center;
+	padding         : 1% 0;
+}
+
+.footer p, .footer h1, .footer a {
+	color: #D2763C;
+}
+
+.footer h1 {
+	font-size: 4em;
+}
+
+.footer p {
+	font-size: 1.2em;
 }
 
 /******************************* MEDIA QUERIES ******/
@@ -217,7 +235,7 @@ h1 { /* Sets default header style */
 		font-size: 2em;
 	}
 
-	#creations .stuffimade h1 {
+	#creations .stuffimade h1, .footer h1 {
 		font-size: 8em;
 	}
 }
@@ -268,7 +286,7 @@ h1 { /* Sets default header style */
 		text-align: left;
 	}
 
-	#creations .stuffimade h1 {
+	#creations .stuffimade h1, .footer h1 {
 		font-size: 4em;
 	}
 }
