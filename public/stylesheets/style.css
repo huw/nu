@@ -174,13 +174,13 @@ h1 { /* Sets default header style */
 
 /******************************* FOOTER SECTION ******/
 .footer {
-	background-color: #C1CED6;
+	background-color: #D2763C;
 	text-align      : center;
 	padding         : 1% 0;
 }
 
 .footer p, .footer h1, .footer a {
-	color: #D2763C;
+	color: #fff;
 }
 
 .footer h1 {
