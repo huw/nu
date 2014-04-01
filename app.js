@@ -7,6 +7,7 @@ var routes  = require('./routes');
 var user    = require('./routes/user');
 var http    = require('http');
 var path    = require('path');
+var fs      = require('fs');
 
 // Import my dependencies
 var request = require('request');
@@ -26,7 +27,12 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+if (fs.existsSync(path.join(__dirname, 'spacerave2014'))) {
+	app.use('/space', express.static(path.join(__dirname, 'spacerave2014')));
+	app.use('/spacerave2014', express.static(path.join(__dirname, 'spacerave2014')));
+	app.use('/spacerave', express.static(path.join(__dirname, 'spacerave2014')));
+}
 
 app.enable('trust proxy');
 
