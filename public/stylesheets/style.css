@@ -168,6 +168,8 @@ h1 { /* Sets default header style */
 }
 
 #creations .spacerave {
+	background: url('/images/spacerave.png');
+	background-size: cover;
 	width: 100%;
 	position: relative;
 }
