@@ -162,14 +162,12 @@ h1 { /* Sets default header style */
 
 #creations .monstercat {
 	background: url('/images/monstercat.jpg');
-	background-size: cover;
 	width: 100%;
 	position: relative;
 }
 
 #creations .spacerave {
 	background: url('/images/spacerave.png');
-	background-size: cover;
 	width: 100%;
 	position: relative;
 }
@@ -187,6 +185,11 @@ h1 { /* Sets default header style */
 #creations .box h1 {
 	font-size: 3.5em;
 	text-align: center;
+	font-weight: 600;
+}
+
+#creations .box h1 a {
+	text-decoration: underline;
 }
 
 #creations .monstercat .box a {
@@ -225,7 +228,7 @@ h1 { /* Sets default header style */
 	font-size: 4em;
 }
 
-.footer p {
+.footer p, .footer a {
 	font-size: 1.2em;
 	line-height: 1.7;
 }
@@ -334,6 +337,7 @@ h1 { /* Sets default header style */
 	}
 	#creations .monstercat, #creations .spacerave {
 		height: 720px;
+		background-size: cover;
 	}
 	#creations .box {
 		width: 400px;
