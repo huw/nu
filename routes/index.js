@@ -42,7 +42,8 @@ exports.index = function(req, res){
             "age"        : age,
             "redditKarma": redditKarma,
             "gitCommits" : gitCommits,
-            "apiKey"     : apiKey
+            "apiKey"     : apiKey,
+            "mcViews"    : mcViews
         })
     }
 
@@ -82,11 +83,26 @@ exports.index = function(req, res){
                     }
                 });
             }, function (err) {
-                render();
+                request('https://www.reddit.com/r/Monstercat/about/traffic.json', monstercat);
             });
         } else {
             console.log("Error " + response.statusCode + ": " + response.body); 
-            gitCommits = "~42"
+            gitCommits = "???"
+            request('https://www.reddit.com/r/Monstercat/about/traffic.json', monstercat);
+        }
+    }
+
+    function monstercat(error, response, body) { // This one pulls our reddit data and moves onto GitHub
+        if (error) throw error;
+        if (response.statusCode == 200) {
+            mcViews = JSON.parse(body);
+            mcViews = parseInt(mcViews.day[1][2]);
+
+            render();
+        } else {
+            console.log("Error " + response.statusCode + ": " + response.body); 
+            mcViews = "???";
+
             render();
         }
     }

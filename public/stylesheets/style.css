@@ -146,11 +146,6 @@ h1 { /* Sets default header style */
 	font-weight    : 600;
 	text-decoration: none;
 }
-.icon-medium { /* There is no Medium icon, so we have to make do */
-	margin: 0 5px;
-	font-family : "Georgia";
-	font-weight : 900;
-}
 
 /******************************* CREATIONS SECTION ******/
 #creations .stuffimade {
@@ -167,9 +162,50 @@ h1 { /* Sets default header style */
 
 #creations .monstercat {
 	background: url('/images/monstercat.jpg');
+	background-size: cover;
+	width: 100%;
+	position: relative;
 }
-#creations .score {
-	background: url('/images/score.jpg');
+
+#creations .spacerave {
+	width: 100%;
+	position: relative;
+}
+
+#creations .box {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 2%;
+}
+
+#creations .box h1, #creations .box p {
+	color: #000;
+	line-height: 1.2;
+}
+
+#creations .box h1 {
+	font-size: 3.5em;
+	text-align: center;
+}
+
+#creations .monstercat .box a {
+	color: #4C2B9C;
+	text-decoration: none;
+}
+
+#creations .spacerave .box a {
+	color: #0099FF;
+	text-decoration: none;
+}
+
+#creations .box p {
+	font-size: 1.2em;
+	text-align: center;
+	line-height: 1.5;
+}
+
+#creations .box p.bold {
+	color: #6a3cd9;
+	font-weight: 600;
 }
 
 /******************************* FOOTER SECTION ******/
@@ -202,10 +238,10 @@ h1 { /* Sets default header style */
 		font-size: 2em;
 	}
 
-	#me .rightcol h1 {
+	#me .rightcol h1, #creations .box h1 {
 		font-size: 4.5em;
 	}
-	#me .rightcol p {
+	#me .rightcol p, #creations .box p {
 		font-size: 1.4em;
 	}
 	#me .leftcol img {
@@ -221,10 +257,10 @@ h1 { /* Sets default header style */
 		font-size: 3.4em;
 	}
 
-	#me .rightcol h1 {
+	#me .rightcol h1{
 		font-size: 8em;
 	}
-	#me .rightcol p {
+	#me .rightcol p, #creations .box p {
 		font-size: 1.5em;
 	}
 
@@ -237,6 +273,9 @@ h1 { /* Sets default header style */
 
 	#creations .stuffimade h1, .footer h1 {
 		font-size: 8em;
+	}
+	#creations .box h1 {
+		font-size: 6em;
 	}
 }
 
@@ -262,8 +301,9 @@ h1 { /* Sets default header style */
 	#me .rightcol h1 {
 		font-size: 6em;
 	}
-	#me .rightcol p {
+	#me .rightcol p, #creations .box p {
 		line-height: 1.7;
+		text-align: left;
 	}
 	#me > div {
 		display: inline-block; /* Position the right column alongside the left */
@@ -288,6 +328,25 @@ h1 { /* Sets default header style */
 
 	#creations .stuffimade h1, .footer h1 {
 		font-size: 4em;
+	}
+	#creations .monstercat, #creations .spacerave {
+		height: 720px;
+	}
+	#creations .box {
+		width: 400px;
+		position: absolute;
+		top: 12%;
+		padding: 2%;
+		box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+	}
+	#creations .monstercat .box {
+		left: 12%;
+	}
+	#creations .spacerave .box {
+		right: 12%;
+	}
+	#creations .box h1 {
+		font-size: 3.5em;
 	}
 }
 

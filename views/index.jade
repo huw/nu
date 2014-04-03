@@ -52,26 +52,29 @@ html
 							a(href="https://twitter.com/huwtheperson") @huwtheperson
 						li
 							span.icon-youtube
-							a(href="https://www.youtube.com/channel/UC_WTuhxUHF19xnp9MDvS15g") Huw Evans
+							a(href="https://www.youtube.com/channel/UC_WTuhxUHF19xnp9MDvS15g") Huw
 						li
 							span.icon-reddit
 							a(href="http://www.reddit.com/u/3vans") /u/3vans
 				//- Google Maps goes in this one
 				div#map
-			//div#creations
-				//div.stuffimade
-					//h1 Stuff I made
-					//p that isn't this site
-				//div.monstercat
-					//div.monstercatbox
-						//h1 /r/Monstercat
-						//p I was approached by Monstercat staff to bring a fresh style to their subreddit. The current version is a modified version of the Naut theme.
-						//p.bold='Yesterday\'s pageviews: ' + monstercatViews
-				//div.score
-					//div.scorebox
-						//h1 Score
-						//p I've seen plenty of song voting systems where you're limited to choosing a song which you can't remember, and then you have to choose which track you want over another one. I fixed that.
-						//p.bold='Total songs voted: ' + "Inactive :("
+			div#creations
+				div.stuffimade
+					h1 Stuff I made
+					p that isn't this site
+				div.monstercat
+					div.box
+						h1 
+							a(href="http://www.reddit.com/r/Monstercat") /r/Monstercat
+						p I was approached by Monstercat staff to bring a fresh style to their subreddit. The current version is a modified version of the Naut theme.
+						p.bold='Yesterday\'s pageviews: ' + mcViews
+				div.spacerave
+					div.box
+						h1
+							a(href="/space") #spacerave2014
+						p An infinite space invaders built entirely in HTML5. Fully responsive, mobile support and infinite gameplay opportunities.
+						p.bold
+							a(href='https://chrome.google.com/webstore/detail/spacerave2014/gfafkgnfomjgcfhmpkbcieackohdkgfl') Also play it offline with Chrome.
 		div.footer
 			h1 HUW
 			p
