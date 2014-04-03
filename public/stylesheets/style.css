@@ -175,7 +175,7 @@ h1 { /* Sets default header style */
 }
 
 #creations .box {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(200, 200, 200, 0.5);
 	padding: 2%;
 }
 
@@ -195,7 +195,7 @@ h1 { /* Sets default header style */
 }
 
 #creations .spacerave .box a {
-	color: #0099FF;
+	color: #00497A;
 	text-decoration: none;
 }
 
@@ -212,7 +212,7 @@ h1 { /* Sets default header style */
 
 /******************************* FOOTER SECTION ******/
 .footer {
-	background-color: #D2763C;
+	background-color: #D9723C;
 	text-align      : center;
 	padding         : 1% 0;
 }
@@ -227,6 +227,7 @@ h1 { /* Sets default header style */
 
 .footer p {
 	font-size: 1.2em;
+	line-height: 1.7;
 }
 
 /******************************* MEDIA QUERIES ******/
@@ -348,7 +349,7 @@ h1 { /* Sets default header style */
 		right: 12%;
 	}
 	#creations .box h1 {
-		font-size: 3.5em;
+		font-size: 3.3em;
 	}
 }
 
