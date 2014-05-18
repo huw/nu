@@ -16,7 +16,7 @@ $(function() {
 
 /******************************* TIMER ******/
 
-var end = new Date('04/28/2014 4:00 AM');
+var end = new Date('04/28/2015 4:00 AM');
 var timer;
 
 function countdown() {
