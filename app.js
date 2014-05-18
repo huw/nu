@@ -32,6 +32,9 @@ if (fs.existsSync(path.join(__dirname, 'spacerave2014'))) {
 	app.use('/spacerave2014', express.static(path.join(__dirname, 'spacerave2014')));
 	app.use('/spacerave', express.static(path.join(__dirname, 'spacerave2014')));
 }
+if (fs.existsSync(path.join(__dirname, 'monstercat-html5'))) {
+	app.use('/monstercat', express.static(path.join(__dirname, 'monstercat-html5')));
+}
 
 app.enable('trust proxy');
 
