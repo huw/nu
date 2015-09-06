@@ -1,0 +1,352 @@
+}
+
+/******************************* GENERAL STYLING ******/
+p, h2, h3, h4, h5, h6, span, li, td { /* Normalises Fonts */
+	font-family: 'Source Code Pro', courier;
+	font-weight: 300;
+	color      : #FFF;
+}
+h1 { /* Sets default header style */
+	font-family: 'Raleway', arial;
+	font-weight: 100;
+	color      : #FFF;
+}
+
+/******************************* HEADER SECTION ******/
+.header {
+	background: #C1CED6;
+}
+.header p, .header h1, .header a { /* Colours stuff */
+	color: #D9723C;
+}
+.header h1 {
+	font-size  : 7em;
+	text-align : center;
+	padding-top: 1%;
+	line-height: 0.8;
+}
+.header p {
+	font-size     : 1.3em;
+	text-align    : center;
+	padding-bottom: 2%;
+	position      : relative;
+	width         : 100%;
+	z-index       : 2;
+}
+.header img.gear {
+	height           : 350px;
+	width            : auto;
+	display          : block;
+	margin           : 0 auto;
+	position         : relative;
+	overflow         : hidden;
+	float            : center;
+	z-index          : 1;
+	animation        : rotate-gear 360s linear infinite; /* Animate! */
+	-webkit-animation: rotate-gear 360s linear infinite;
+}
+@keyframes rotate-gear { /* Spin the gear */
+	from {
+		transform    : rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform    : rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate-gear {
+	from {
+		-webkit-transform: rotate(0deg); /* We only need to animate the webkit transforms in the webkit animation */
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+/******************************* ME SECTION ******/
+#me {
+	color     : #FFF;
+	clear     : both;
+	background: url('/images/cover.jpg');
+}
+#me .leftcol {
+	padding: 10% 0;
+}
+#me .leftcol img {
+	margin       : 0 auto;
+	display      : block;
+	border       : 10px solid #FFF;
+	box-shadow   : 0px 10px 8px 0px rgba(0, 0, 0, .5); /* Make it look like a picture */
+	margin-bottom: 8px;
+	width        : 40%;
+}
+#me .leftcol p {
+	text-align : center;
+	font-weight: 900;
+	font-size  : 1.2em;
+}
+#me .rightcol {
+	vertical-align: top;
+	text-align    : center;
+	padding-bottom: 8%;
+}
+#me .rightcol h1 {
+	font-size: 4em;
+}
+#me .rightcol p {
+	font-size  : 1.2em;
+	line-height: 1.3;
+}
+
+/******************************* CHAT SECTION ******/
+#chat {
+    position: relative;
+}
+#chat #map {
+	height : 100%;
+	display: none;
+}
+#chat .findme {
+	padding   : 2%;
+	background: #3F95C9;
+	text-align: center;
+	border    : 10px solid #29328A;
+}
+#chat .findme h1 {
+	font-size: 4em;
+}
+#chat .findme li {
+	font-size  : 1.6em;
+	line-height: 1.5;
+}
+#chat .findme a {
+	color          : #fff;
+	font-weight    : 600;
+	text-decoration: none;
+}
+
+/******************************* CREATIONS SECTION ******/
+#creations .stuffimade {
+	background-color: #D9723C;
+	text-align      : center;
+	padding         : 1% 0;
+}
+#creations .stuffimade h1 {
+	font-size: 4em;
+}
+#creations .stuffimade p {
+	font-size: 1.2em;
+}
+
+#creations .monstercat {
+	background: url('/images/monstercat.jpg');
+	width: 100%;
+	position: relative;
+}
+
+#creations .spacerave {
+	background: url('/images/spacerave.png');
+	width: 100%;
+	position: relative;
+}
+
+#creations .box {
+	background-color: rgba(200, 200, 200, 0.5);
+	padding: 2%;
+}
+
+#creations .box h1, #creations .box p {
+	color: #000;
+	line-height: 1.2;
+}
+
+#creations .box h1 {
+	font-size: 3.5em;
+	text-align: center;
+	font-weight: 600;
+}
+
+#creations .box h1 a {
+	text-decoration: underline;
+}
+
+#creations .monstercat .box a {
+	color: #4C2B9C;
+	text-decoration: none;
+}
+
+#creations .spacerave .box a {
+	color: #00497A;
+	text-decoration: none;
+}
+
+#creations .box p {
+	font-size: 1.2em;
+	text-align: center;
+	line-height: 1.5;
+}
+
+#creations .box p.bold {
+	color: #6a3cd9;
+	font-weight: 600;
+}
+
+/******************************* FOOTER SECTION ******/
+.footer {
+	background-color: #D9723C;
+	text-align      : center;
+	padding         : 1% 0;
+}
+
+.footer p, .footer h1, .footer a {
+	color: #fff;
+}
+
+.footer h1 {
+	font-size: 4em;
+}
+
+.footer p, .footer a {
+	font-size: 1.2em;
+	line-height: 1.7;
+}
+
+/******************************* MEDIA QUERIES ******/
+/* Remember, JQuery is only for cool scrolly stuff and making divs 100% height */
+
+@media only screen and (min-width: 481px) { /* Large phones */
+	.header h1 {
+		font-size: 11em;
+	}
+	.header p {
+		font-size: 2em;
+	}
+
+	#me .rightcol h1, #creations .box h1 {
+		font-size: 4.5em;
+	}
+	#me .rightcol p, #creations .box p {
+		font-size: 1.4em;
+	}
+	#me .leftcol img {
+		border-width: 15px;
+	}
+}
+
+@media only screen and (min-width: 768px) { /* Tablet, small laptops */
+	.header h1 {
+		font-size: 18em;
+	}
+	.header p {
+		font-size: 3.4em;
+	}
+
+	#me .rightcol h1{
+		font-size: 8em;
+	}
+	#me .rightcol p, #creations .box p {
+		font-size: 1.5em;
+	}
+
+	#chat .findme h1 {
+		font-size: 8em;
+	}
+	#chat .findme li {
+		font-size: 2em;
+	}
+
+	#creations .stuffimade h1, .footer h1 {
+		font-size: 8em;
+	}
+	#creations .box h1 {
+		font-size: 6em;
+	}
+}
+
+@media only screen and (min-width: 1030px) { /* Desktop, larger laptops */
+	#me {
+		background-size: 100%;
+	}
+	#me .leftcol img {
+		width: 90%;
+	}
+
+	#me .leftcol {
+		padding-left: 8%;
+		width       : 30%;
+	}
+	#me .rightcol {
+		padding-left  : 2%;
+		padding-right : 8%;
+		padding-top   : 11%;
+		padding-bottom: 0;
+		text-align    : left;
+	}
+	#me .rightcol h1 {
+		font-size: 6em;
+	}
+	#me .rightcol p, #creations .box p {
+		line-height: 1.7;
+		text-align: left;
+	}
+	#me > div {
+		display: inline-block; /* Position the right column alongside the left */
+	}
+
+	#chat #map {
+		display: block; /* We're on a bigger device so view the map */
+	}
+	#chat .findme {
+		position: absolute; /* Put the box on the side of it */
+		z-index : 3;
+		right   : 40px;
+		top     : 40px;
+	}
+	#chat .findme h1 {
+		font-size: 4em;
+	}
+	#chat .findme li {
+		font-size : 1.5em;
+		text-align: left;
+	}
+
+	#creations .stuffimade h1, .footer h1 {
+		font-size: 4em;
+	}
+	#creations .monstercat, #creations .spacerave {
+		height: 720px;
+		background-size: cover;
+	}
+	#creations .box {
+		width: 400px;
+		position: absolute;
+		top: 12%;
+		padding: 2%;
+		box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+	}
+	#creations .monstercat .box {
+		left: 12%;
+	}
+	#creations .spacerave .box {
+		right: 12%;
+	}
+	#creations .box h1 {
+		font-size: 3.3em;
+	}
+}
+
+@media only screen and (min-width: 1240px) { /* Large screens */
+	#me .rightcol h1 {
+		font-size: 7.6em;
+	}
+	#me .rightcol p {
+		font-size  : 1.9em;
+		line-height: 1.9;
+	}
+}
+
+/* Retina displays below */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+
+}

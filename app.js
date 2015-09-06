@@ -1,50 +1,51 @@
-/**
- * Module dependencies.
- */
+var connect = require('connect')
+	,logger = require('morgan')
+	,static = require('serve-static')
+	,path = require('path')
+	,fs = require('fs')
+	,http = require('http')
+	,https = require('https')
 
-var express = require('express');
-var routes  = require('./routes');
-var http    = require('http');
-var path    = require('path');
-var fs      = require('fs');
+var app = connect()
 
-// Import my dependencies
-var request = require('request');
-var async   = require('async');
+logger.format('custom', function developmentFormatLine(tokens, req, res) {
+  // get the status code if response written
+  var status = res._header
+    ? res.statusCode
+    : undefined
 
-var app     = express();
+  // get status color
+  var color = status >= 500 ? 31 // red
+    : status >= 400 ? 33 // yellow
+    : status >= 300 ? 36 // cyan
+    : status >= 200 ? 32 // green
+    : 0 // no color
 
-// All environments
-app.set('port', process.env.PORT || 80);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.compress());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
-app.use(app.router);
-app.use('/', express.static(path.join(__dirname, 'public')));
+  // get colored function
+  var fn = developmentFormatLine[color]
+
+  if (!fn) {
+    // compile
+    fn = developmentFormatLine[color] = logger.compile('\x1b[90m:remote-addr - :method `:url` \x1b[7m\x1b['
+      + color + 'm:status\x1b[0m \x1b[90mat :date[iso] (:response-time ms)\x1b[0m')
+  }
+
+  return fn(tokens, req, res)
+})
+
 if (fs.existsSync(path.join(__dirname, 'spacerave2014'))) {
-	app.use('/space', express.static(path.join(__dirname, 'spacerave2014')));
-	app.use('/spacerave2014', express.static(path.join(__dirname, 'spacerave2014')));
-	app.use('/spacerave', express.static(path.join(__dirname, 'spacerave2014')));
-}
-if (fs.existsSync(path.join(__dirname, 'monstercat-html5'))) {
-	app.use('/monstercat', express.static(path.join(__dirname, 'monstercat-html5')));
+	app.use('/space', static(path.join(__dirname, 'spacerave2014')));
+	app.use('/spacerave2014', static(path.join(__dirname, 'spacerave2014')));
+	app.use('/spacerave', static(path.join(__dirname, 'spacerave2014')));
 }
 
-app.enable('trust proxy');
+app.use(logger('custom'))
+app.use(static(path.join(__dirname, 'public')))
 
-// Development only
-if ('development' == app.get('env')) {
- 	app.use(express.errorHandler());
+var options = {
+	key: fs.readFileSync(path.join(__dirname, 'ssl', 'server.key')),
+	cert: fs.readFileSync(path.join(__dirname, 'ssl', 'server.crt'))
 }
 
-app.get('/', routes.index);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Server listening on port ' + app.get('port'));
-});
+http.createServer(app).listen(80)
+https.createServer(options, app).listen(443)
