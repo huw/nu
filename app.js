@@ -1,12 +1,16 @@
 var connect = require('connect')
 	,logger = require('morgan')
 	,static = require('serve-static')
+	,compression = require('compression')
 	,path = require('path')
 	,fs = require('fs')
 	,http = require('http')
 	,https = require('https')
 
 var app = connect()
+
+compression.level = 9
+compression.threshold = false
 
 logger.format('custom', function developmentFormatLine(tokens, req, res) {
   // get the status code if response written
@@ -40,6 +44,7 @@ if (fs.existsSync(path.join(__dirname, 'spacerave2014'))) {
 }
 
 app.use(logger('custom'))
+app.use(compression())
 app.use(static(path.join(__dirname, 'public')))
 
 var options = {
