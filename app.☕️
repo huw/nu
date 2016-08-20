@@ -1,0 +1,26 @@
+serve_static = require 'serve-static'
+compression = require 'compression'
+path = require 'path'
+
+app = require('connect')()
+
+if require('fs').existsSync path.join __dirname, 'spacerave2014'
+    rave_static = serve_static path.join __dirname, 'spacerave2014'
+    app.use '/space', rave_static
+    app.use '/spacerave2014', rave_static
+    app.use '/spacerave', rave_static
+
+app.use require('morgan') 'dev'
+app.use require('compression') level: 9, threshold: false
+app.use require('forcedomain') hostname: 'huw.nu'
+app.use serve_static path.join __dirname, 'public'
+
+lex = require('letsencrypt-express').create {
+    server: 'https://acme-v01.api.letsencrypt.org/directory',
+    email: 'me@huw.nu',
+    agreeTos: true,
+    approveDomains: ['huw.nu', 'www.huw.nu']
+}
+
+require('http').createServer(lex.middleware require('redirect-https')()).listen 80
+require('https').createServer(lex.httpsOptions, lex.middleware app).listen 443
