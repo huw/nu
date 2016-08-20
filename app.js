@@ -30,8 +30,8 @@ logger.format('custom', function developmentFormatLine(tokens, req, res) {
 
   if (!fn) {
     // compile
-    fn = developmentFormatLine[color] = logger.compile('\x1b[90m:remote-addr - :method `:url` \x1b[7m\x1b['
-      + color + 'm:status\x1b[0m \x1b[90mat :date[iso] (:response-time ms)\x1b[0m')
+    fn = developmentFormatLine[color] = logger.compile('\x1b[97m:remote-addr - :method `:url` \x1b[7m\x1b['
+      + color + 'm:status\x1b[0m \x1b[97mat :date[iso] (:response-time ms)\x1b[0m')
   }
 
   return fn(tokens, req, res)
