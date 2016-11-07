@@ -1,0 +1,6 @@
+{
+    "colons": "never",
+    "colors": false,
+    "prefixVarsWithDollar": "never",
+    "sortOrder": false
+}

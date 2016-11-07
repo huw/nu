@@ -1,0 +1,21 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width')
+    link(rel='stylesheet', type='text/css', href='base.css')
+    title= 'huw'
+  body
+    each item in pagination.files
+      article.content-article
+        header
+          span.timestamp= item.date
+          h2
+            a(href=item.paths.href)= item.title
+    nav
+    if pagination.previous
+      a.btn(href=pagination.previous.paths.href)
+        | newer
+    if pagination.next
+      a.btn(href=pagination.next.paths.href)
+        | older
