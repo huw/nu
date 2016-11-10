@@ -1,6 +1,5 @@
 # main modules
 highlight = require 'highlight.js'
-fountain = require './index.js'
 metalsmith = require 'metalsmith'
 moment = require 'moment'
 rupture = require 'rupture'
@@ -9,6 +8,7 @@ watch = require 'glob-watcher'
 # metalsmith plugins
 cleanCss = require 'metalsmith-clean-css'
 collections = require 'metalsmith-collections'
+fountain = require 'metalsmith-fountain'
 htmlMinifier = require 'metalsmith-html-minifier'
 layouts = require 'metalsmith-layouts'
 livereload = require 'metalsmith-livereload'
@@ -17,6 +17,7 @@ pagination = require 'metalsmith-pagination'
 paths = require 'metalsmith-paths'
 permalinks = require 'metalsmith-permalinks'
 stylus = require 'metalsmith-stylus'
+svgo = require 'metalsmith-svgo'
 
 # markdown-it plugins
 emoji = require 'markdown-it-emoji'
@@ -75,6 +76,7 @@ build = ->
       debug: true
     #.use htmlMinifier() # PRODUCTION ONLY
     #.use cleanCss() # PRODUCTION ONLY
+    #.use svgo() # PRODUCTION ONLY
     .destination '../huw.github.io'
     .build (err) -> if err then throw err
     console.log 'built'
