@@ -1,0 +1,57 @@
+// VARIABLES
+
+margin-mobile = 5vw
+margin-desktop = 5vh
+
+// IMPORTS
+
+@import 'fonts'
+@import 'highlight'
+@import 'nav'
+@import 'footer'
+@import 'words'
+
+// OUTER STYLES
+
+body
+  // sufficient margins for body,
+  // gives a nice padding
+  margin margin-mobile margin-mobile
+  font-family "Computer Modern"
+
+  +desktop()
+    // restrict body width to 3/7ths of viewport
+    // (3/7ths is just _nicer_ than 50%)
+    // and centre it with margins
+    margin margin-desktop auto
+    min-width 650px
+    max-width (3 / 7) * 100 vw
+
+// GENERAL ELEMENT STYLES
+
+a
+  // on mobile we want our styling cheap
+  // a highlight effect can still be applied
+  // but only on focus and hover
+  // and with no transition
+  text-decoration none
+  color black
+  border-bottom 1px solid black
+
+  &:active, &:focus
+    background red
+    outline none
+
++desktop()
+  // don't want use media queries for mobile
+  // so apply 'background' to all three
+  // (see above)
+  a, a:active, a:focus
+    // the background slides upward
+    // from the underline
+    background linear-gradient(to top, red, red 50%, transparent 50%, transparent)
+    background-size 100% 200%
+    background-position 0 0
+    transition background-position 0.15s
+  a:hover
+    background-position 0 100%

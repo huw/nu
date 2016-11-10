@@ -1,0 +1,58 @@
+.main, article
+  margin margin-mobile 0
+
+  +desktop()
+    margin margin-desktop 0
+
+header
+  max-width 400px
+  margin 0 auto
+  text-align center
+
+  word-break break-word
+  word-wrap break-word
+  hyphens auto
+
+  h1
+    margin 0.75rem 0
+    text-transform capitalize
+    font-size 2rem
+
+  time
+    font-family 'Roboto Mono', monospace
+    text-transform uppercase
+    font-size 0.75rem
+
+  a, a:hover, a:active, a:focus
+    background none
+    border-bottom none
+
+article
+  text-align justify
+  line-height 1.5
+
+  +above(rupture.scale[2])
+    font-size 1.125rem
+
+  h1, h2, h3, h4, h5, h6
+    text-align center
+    margin margin-mobile 0
+
+    +desktop()
+      margin margin-desktop 0
+
+  blockquote
+    font-style italic
+
+  code
+    // for some reason rems were breaking
+    // this size is nice
+    font-size 14px
+
+  table
+    width 100%
+    border-collapse collapse
+    border-spacing 0
+
+  thead
+    border-bottom 1px solid black

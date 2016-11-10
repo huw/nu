@@ -1,14 +1,17 @@
 ---
-title: Testing...
+title: Testing this kind of stuff out, but with a superridiculouslylongwordthatdoesntexist
 date: 2016-11-04
 author: huw
 layout: words.pug
 ---
 
-An h1 header
-============
-
 Paragraphs are separated by a blank line.
+
+Here's a link to [a website](http://foo.bar), to a [local
+doc](local-doc.html), and to a [section heading in the current
+doc](#an-h2-header). Here's a footnote [^1].
+
+[^1]: Footnote text goes here.
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
@@ -68,8 +71,6 @@ for i in range(10):
     print i
 ~~~
 
-
-
 ### An h3 header ###
 
 Now a nested list:
@@ -98,36 +99,15 @@ Now a nested list:
 Notice again how text always lines up on 4-space indents (including
 that last line which continues item 3 above).
 
-Here's a link to [a website](http://foo.bar), to a [local
-doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header). Here's a footnote [^1].
-
-[^1]: Footnote text goes here.
-
 Tables can look like this:
 
-size  material      color
-----  ------------  ------------
-9     leather       brown
-10    hemp canvas   natural
-11    glass         transparent
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 Table: Shoes, their sizes, and what they're made of
-
-(The above is the caption for the table.) Pandoc also supports
-multi-line tables:
-
---------  -----------------------
-keyword   text
---------  -----------------------
-red       Sunsets, apples, and
-          other red or reddish
-          things.
-
-green     Leaves, grass, frogs
-          and other things it's
-          not easy being.
---------  -----------------------
 
 A horizontal rule follows.
 
@@ -155,7 +135,7 @@ and images can be specified like so:
 
 ![example image](example-image.jpg "An exemplary image")
 
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
+Inline math equations go in like so: $\sqrt{3x-1}+(1+x)^2$. Display
 math should get its own line and be put in in double-dollarsigns:
 
 $$I = \int \rho R^{2} dV$$

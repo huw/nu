@@ -1,11 +1,14 @@
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width')
-    link(rel='stylesheet', type='text/css', href='/base.css')
-    title= title
-  body
+extends base.pug
+
+block title
+  title= title
+
+block append styles
+  link(rel='stylesheet', type='text/css', href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
+
+block content
+  header
     h1= title
-    div.timestamp= date
-    article!= contents
+    a(href=paths.href)
+      time(datetime=date)= moment(date).format("MMMM D, YYYY")
+  article!= contents

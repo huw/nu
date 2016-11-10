@@ -1,0 +1,65 @@
+nav
+  text-align center
+
+  a.site-name
+    // top padding makes hover target contiguous
+    display inline-block
+    width 112px
+    padding-top 8px
+    text-decoration none
+    border-bottom none
+    font-family 'Roboto Mono', monospace
+    &:hover, &:focus, &:active
+      background none
+      color inherit
+
+.logo
+  // vertically and horizontally centre items
+  // but max out at the height of the logo
+  display flex
+  justify-content center
+  align-items center
+  max-width 400px
+  margin 0 auto
+
+  hr
+    // the bars on the side of the logo
+    // should stretch to an appropriate width
+    // left and right have margins to cut them off
+    width 100%
+    border 0
+    border-bottom 2px solid black
+    &.left
+      margin-right 16px
+    &.right
+      margin-left 16px
+
+  img
+    display block
+
+  a
+    // border-radius creates circular fill
+    // but not circular target
+    // also reset link styles
+    border-radius 50%
+    background none
+    border-bottom none
+    &:active, &:focus
+      background red
+      outline none
+
+  +desktop()
+    a
+      // block is required for box-shadow
+      // box-shadow fills in the circle from the edges
+      // transition on hover, desktop only
+      display block
+      box-shadow inset 0 0 0 0 red
+      transition box-shadow .15s ease-in-out
+      &:hover
+        box-shadow inset 0 0 0 100px red
+      &:active, &:focus
+        // similar to the normal stuff for links
+        // (see above)
+        background none
+        outline inherit

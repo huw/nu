@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "glob-watcher": "^3.0.0",
-    "highlighter": "^0.1.0",
+    "highlight.js": "^9.8.0",
+    "markdown-it-emoji": "^1.3.0",
+    "markdown-it-footnote": "^3.0.1",
+    "markdown-it-katex": "^2.0.3",
+    "metalsmith-clean-css": "^5.0.0",
     "metalsmith-collections": "^0.9.0",
-    "metalsmith-date-formatter": "^1.0.2",
+    "metalsmith-html-minifier": "^2.2.0",
     "metalsmith-layouts": "^1.6.5",
     "metalsmith-livereload": "0.0.2",
-    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-markdownit": "^0.4.0",
     "metalsmith-pagination": "^1.4.0",
     "metalsmith-paths": "^2.1.2",
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-stylus": "^2.0.1",
-    "pug": "^2.0.0-beta6"
+    "moment": "^2.16.0",
+    "pug": "^2.0.0-beta6",
+    "rupture": "^0.6.2"
   }
 }
