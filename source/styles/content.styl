@@ -1,0 +1,39 @@
+// IMPORTS
+@import 'highlight'
+
+article.markdown
+  @import 'markdown'
+
+article.fountain
+  @import 'fountain'
+
+// GENERIC CONTENT STYLES
+
+.main, article
+  margin margin-mobile 0
+
+  +desktop()
+    margin margin-desktop 0
+
+header
+  max-width 400px
+  margin 0 auto
+  text-align center
+
+  word-break break-word
+  word-wrap break-word
+  hyphens auto
+
+  h1
+    margin 0.75rem 0
+    text-transform capitalize
+    font-size 2rem
+
+  :not(h1)
+    font-family 'Roboto Mono', monospace
+    text-transform uppercase
+    font-size 0.75rem
+
+  a, a:hover, a:active, a:focus
+    background none
+    border-bottom none

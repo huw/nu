@@ -1,0 +1,38 @@
+// applies to article.markdown
+
+text-align justify
+line-height 1.5
+
++above(rupture.scale[2])
+  font-size 1.125rem
+
+h1, h2, h3, h4, h5, h6
+  text-align center
+  margin margin-mobile 0
+
+  +desktop()
+    margin margin-desktop 0
+
+img
+  display block
+  max-width 100%
+  margin 0 auto
+
+blockquote
+  font-style italic
+
+code
+  // for some reason rems were breaking
+  // this size is nice
+  font-size 14px
+
+table
+  width 100%
+  border-collapse collapse
+  border-spacing 0
+
+thead
+  border-bottom 1px solid black
+
+.footnote-ref a
+  border-bottom 0

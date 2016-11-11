@@ -8,16 +8,18 @@ watch = require 'glob-watcher'
 # metalsmith plugins
 cleanCss = require 'metalsmith-clean-css'
 collections = require 'metalsmith-collections'
+fileMetadata = require 'metalsmith-filemetadata'
 fountain = require 'metalsmith-fountain'
 htmlMinifier = require 'metalsmith-html-minifier'
+imagemin = require 'metalsmith-imagemin/lib/node6'
 layouts = require 'metalsmith-layouts'
 livereload = require 'metalsmith-livereload'
 markdown = require 'metalsmith-markdownit'
+moveUp = require 'metalsmith-move-up'
 pagination = require 'metalsmith-pagination'
 paths = require 'metalsmith-paths'
 permalinks = require 'metalsmith-permalinks'
 stylus = require 'metalsmith-stylus'
-svgo = require 'metalsmith-svgo'
 
 # markdown-it plugins
 emoji = require 'markdown-it-emoji'
@@ -49,23 +51,40 @@ build = ->
     .source 'source'
     # files in /styles/ are consolidated by stylus
     .ignore ['**/styles/**/!(base.styl)']
+    # use metadata to lay out different files by default
+    .use fileMetadata [{
+        pattern: 'content/**/*.md'
+        metadata:
+          layout: 'markdown.pug'
+        preserve: true
+      }, {
+        pattern: 'content/**/*.fountain'
+        metadata:
+          layout: 'fountain.pug'
+        preserve: true
+      }]
+    .use moveUp 'content/**'
     .use stylus
       use: [rupture()]
     .use md
-    .use fountain()
-    .use permalinks
-      relative: false
-    .use collections
-      words:
-        pattern: 'words/**/*.html'
-        sortBy: 'date'
-        reverse: true
-    .use pagination
-      'collections.words':
-        perPage: 7
-        first: 'words/index.html'
-        path: 'words/:num/index.html'
-        layout: 'words-index.pug'
+    .use fountain
+      title_page: false
+      content_metadata: false
+      preserve_title: false
+      preserve_date: false
+    #.use permalinks
+    #  relative: false
+    #.use collections
+    #  words:
+    #    pattern: 'content/**/*.html'
+    #    sortBy: 'date'
+    #    reverse: true
+    #.use pagination
+    #  'collections.words':
+    #    perPage: 7
+    #    first: 'words/index.html'
+    #    path: 'words/:num/index.html'
+    #    layout: 'words-index.pug'
     .use paths
       property: 'paths'
       directoryIndex: 'index.html'
@@ -76,7 +95,7 @@ build = ->
       debug: true
     #.use htmlMinifier() # PRODUCTION ONLY
     #.use cleanCss() # PRODUCTION ONLY
-    #.use svgo() # PRODUCTION ONLY
+    #.use imagemin() # PRODUCTION ONLY
     .destination '../huw.github.io'
     .build (err) -> if err then throw err
     console.log 'built'

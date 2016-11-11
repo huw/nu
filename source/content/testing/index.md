@@ -1,8 +1,6 @@
 ---
 title: Testing this kind of stuff out, but with a superridiculouslylongwordthatdoesntexist
 date: 2016-11-04
-author: huw
-layout: words.pug
 ---
 
 Paragraphs are separated by a blank line.
@@ -133,7 +131,7 @@ Here's a "line block":
 
 and images can be specified like so:
 
-![example image](example-image.jpg "An exemplary image")
+![example image](nice.jpg "An exemplary image")
 
 Inline math equations go in like so: $\sqrt{3x-1}+(1+x)^2$. Display
 math should get its own line and be put in in double-dollarsigns:

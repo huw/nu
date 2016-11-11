@@ -6,10 +6,10 @@ margin-desktop = 5vh
 // IMPORTS
 
 @import 'fonts'
-@import 'highlight'
 @import 'nav'
 @import 'footer'
-@import 'words'
+// (includes md/fountain styles)
+@import 'content'
 
 // OUTER STYLES
 
@@ -55,3 +55,12 @@ a
     transition background-position 0.15s
   a:hover
     background-position 0 100%
+
+*::selection
+  color white
+  background red
+
+// (-_-) mozilla
+*::-moz-selection
+  color white
+  background red

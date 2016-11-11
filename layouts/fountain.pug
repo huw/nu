@@ -1,0 +1,25 @@
+extends content.pug
+
+block header
+  header
+    h1= title
+    if fountain.authors
+      if fountain.credit
+        p= fountain.credit + " " + fountain.authors
+      else
+        p= "by " + fountain.authors
+    else if fountain.author
+      if fountain.credit
+        p= fountain.credit + " " + fountain.author
+      else
+        p= "by " + fountain.author
+
+    if (date)
+      a(href=paths.href)
+        time(datetime=date)= moment(date).format("MMMM D, YYYY")
+
+    if fountain.copyright
+      p= fountain.copyright
+
+block content
+  article.fountain!= contents

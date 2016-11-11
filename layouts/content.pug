@@ -1,0 +1,12 @@
+extends base.pug
+
+block title
+  title= title
+
+block main
+  block header
+    header
+      h1= title
+      a(href=paths.href)
+        time(datetime=date)= moment(date).format("MMMM D, YYYY")
+  block content
