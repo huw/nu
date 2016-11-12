@@ -17,10 +17,9 @@ layouts = require 'metalsmith-layouts'
 livereload = require 'metalsmith-livereload'
 markdown = require 'metalsmith-markdownit'
 moveUp = require 'metalsmith-move-up'
-pagination = require 'metalsmith-pagination'
 paths = require 'metalsmith-paths'
 stylus = require 'metalsmith-stylus'
-updated = require 'metalsmith-updated'
+#updated = require 'metalsmith-updated'
 
 # markdown-it plugins
 emoji = require 'markdown-it-emoji'
@@ -57,11 +56,13 @@ build = ->
         pattern: 'content/**/*.md'
         metadata:
           layout: 'markdown.pug'
+          collection: 'content'
         preserve: true
       }, {
         pattern: 'content/**/*.fountain'
         metadata:
           layout: 'fountain.pug'
+          collection: 'content'
         preserve: true
       }]
     .use moveUp 'content/**'
@@ -70,19 +71,12 @@ build = ->
     .use md
     .use fountain
       title_page: false
-    #.use collections
-    #  words:
-    #    pattern: 'content/**/*.html'
-    #    sortBy: 'date'
-    #    reverse: true
-    #.use pagination
-    #  'collections.words':
-    #    perPage: 7
-    #    first: 'words/index.html'
-    #    path: 'words/:num/index.html'
-    #    layout: 'words-index.pug'
-    .use updated
-      filePatterns: ['*.html']
+    #.use updated
+    #  filePatterns: ['*.html']
+    .use collections
+      content:
+    #    sortBy: 'created'
+        reverse: true
     .use paths
       property: 'paths'
       directoryIndex: 'index.html'

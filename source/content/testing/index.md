@@ -1,5 +1,9 @@
 ---
 title: Testing this kind of stuff out, but with a superridiculouslylongwordthatdoesntexist
+collection:
+- featured
+- content
+description: A big ol' test of this project, I wonder if it actually works???
 ---
 
 Paragraphs are separated by a blank line.

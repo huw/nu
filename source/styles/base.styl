@@ -48,6 +48,17 @@ a
     background red
     outline none
 
+hr
+  // evenly space the border
+  margin margin-mobile auto
+  width 100%
+  max-width 400px
+  border 0
+  border-bottom 2px solid black
+
+  +desktop()
+    margin margin-desktop auto
+
 +desktop()
   // don't want use media queries for mobile
   // so apply 'background' to all three
@@ -56,6 +67,7 @@ a
     // the background slides upward
     // from the underline
     background linear-gradient(to top, red, red 50%, transparent 50%, transparent)
+    background-repeat no-repeat
     background-size 100% 200%
     background-position 0 0
     transition background-position 0.15s
@@ -63,10 +75,10 @@ a
     background-position 0 100%
 
 *::selection
-  color white
+  color black
   background red
 
 // (-_-) mozilla
 *::-moz-selection
-  color white
+  color black
   background red

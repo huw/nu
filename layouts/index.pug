@@ -1,0 +1,34 @@
+extends base.pug
+
+block title
+  title huw
+
+block main
+  each item in collections.featured
+    .item
+      h1
+        a(href=item.paths.href)= item.title
+      time(datetime=item.created)= moment(item.created).format("MMMM D, YYYY")
+
+      if item.description
+        p.description= item.description
+
+  hr
+  .box
+    h1 Find Me
+    p
+      a(href='mailto:me@huw.nu') email: me@huw.nu
+    p
+      a(href='https://github.com/huw') github: huw
+    p
+      a(href='https://keybase.io/huw') keybase: huw
+
+  hr
+  h1.item Projects
+
+  each item in collections.content
+    if collections.featured.indexOf(item) == -1
+      .item
+        h2
+          a(href=item.paths.href)= item.title
+        time(datetime=item.created)= moment(item.created).format("MMMM D, YYYY")

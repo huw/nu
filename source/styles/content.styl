@@ -11,25 +11,62 @@
   +desktop()
     margin margin-desktop 0
 
-header
-  max-width 400px
-  margin 0 auto
+header, .item
   text-align center
 
   word-break break-word
   word-wrap break-word
   hyphens auto
 
-  h1
+  &>h1, &>h2
     margin 0.75rem 0
     text-transform capitalize
+
+  h1
     font-size 2rem
 
-  :not(h1)
+  h2
+    font-size 1.5rem
+
+  &>:not(h1):not(h2)
     font-family 'Roboto Mono', monospace
     text-transform uppercase
     font-size 0.75rem
 
+header
+  max-width 400px
+  margin 0 auto
+
   a, a:hover, a:active, a:focus
     background none
     border-bottom none
+
+.item
+  margin margin-mobile 0
+
+  +desktop()
+    margin margin-desktop 0
+
+    a, a:active, a:focus
+      // background slides sideways this time
+      background linear-gradient(to right, red, red 50%, transparent 50%, transparent)
+      background-repeat no-repeat
+      background-size 200% 100%
+      background-position 101% 0
+    a:hover
+      background-position 0 0
+
+.box
+  //margin margin-mobile auto
+  //padding (margin-mobile / 2) 0
+  //max-width 400px
+  //border 2px solid black
+  text-align center
+
+  p
+    font-family 'Roboto Mono', monospace
+    text-transform uppercase
+
+  +desktop()
+    margin margin-desktop auto
+    padding (margin-desktop / 2) 0
