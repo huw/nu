@@ -8,8 +8,9 @@ watch = require 'glob-watcher'
 # metalsmith plugins
 cleanCss = require 'metalsmith-clean-css'
 collections = require 'metalsmith-collections'
+drafts = require 'metalsmith-drafts'
 fileMetadata = require 'metalsmith-filemetadata'
-fountain = require '../metalsmith-fountain'
+fountain = require 'metalsmith-fountain'
 htmlMinifier = require 'metalsmith-html-minifier'
 imagemin = require 'metalsmith-imagemin/lib/node6'
 layouts = require 'metalsmith-layouts'
@@ -19,6 +20,7 @@ moveUp = require 'metalsmith-move-up'
 pagination = require 'metalsmith-pagination'
 paths = require 'metalsmith-paths'
 stylus = require 'metalsmith-stylus'
+updated = require 'metalsmith-updated'
 
 # markdown-it plugins
 emoji = require 'markdown-it-emoji'
@@ -50,7 +52,7 @@ build = ->
     .source 'source'
     # files in /styles/ are consolidated by stylus
     .ignore ['**/styles/**/!(base.styl)']
-    # use metadata to lay out different files by default
+    .use drafts()
     .use fileMetadata [{
         pattern: 'content/**/*.md'
         metadata:
@@ -79,6 +81,8 @@ build = ->
     #    first: 'words/index.html'
     #    path: 'words/:num/index.html'
     #    layout: 'words-index.pug'
+    .use updated
+      filePatterns: ['*.html']
     .use paths
       property: 'paths'
       directoryIndex: 'index.html'

@@ -1,6 +1,5 @@
 ---
 title: Testing this kind of stuff out, but with a superridiculouslylongwordthatdoesntexist
-date: 2016-11-04
 ---
 
 Paragraphs are separated by a blank line.

@@ -8,5 +8,5 @@ block main
     header
       h1= title
       a(href=paths.href)
-        time(datetime=date)= moment(date).format("MMMM D, YYYY")
+        time(datetime=created)= moment(created).format("MMMM D, YYYY")
   block content
