@@ -13,6 +13,11 @@ margin-desktop = 5vh
 
 // OUTER STYLES
 
+html
+  box-sizing border-box
+*
+  box-sizing inherit
+
 body
   // sufficient margins for body,
   // gives a nice padding
@@ -24,8 +29,9 @@ body
     // (3/7ths is just _nicer_ than 50%)
     // and centre it with margins
     margin margin-desktop auto
-    min-width 650px
-    max-width (3 / 7) * 100 vw
+    &:not(.fountain)
+      min-width 650px
+      max-width (3 / 7) * 100 vw
 
 // GENERAL ELEMENT STYLES
 

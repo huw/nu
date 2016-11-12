@@ -9,7 +9,7 @@ watch = require 'glob-watcher'
 cleanCss = require 'metalsmith-clean-css'
 collections = require 'metalsmith-collections'
 fileMetadata = require 'metalsmith-filemetadata'
-fountain = require 'metalsmith-fountain'
+fountain = require '../metalsmith-fountain'
 htmlMinifier = require 'metalsmith-html-minifier'
 imagemin = require 'metalsmith-imagemin/lib/node6'
 layouts = require 'metalsmith-layouts'
@@ -18,7 +18,6 @@ markdown = require 'metalsmith-markdownit'
 moveUp = require 'metalsmith-move-up'
 pagination = require 'metalsmith-pagination'
 paths = require 'metalsmith-paths'
-permalinks = require 'metalsmith-permalinks'
 stylus = require 'metalsmith-stylus'
 
 # markdown-it plugins
@@ -69,11 +68,6 @@ build = ->
     .use md
     .use fountain
       title_page: false
-      content_metadata: false
-      preserve_title: false
-      preserve_date: false
-    #.use permalinks
-    #  relative: false
     #.use collections
     #  words:
     #    pattern: 'content/**/*.html'

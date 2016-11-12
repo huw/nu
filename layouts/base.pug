@@ -9,12 +9,16 @@ html(lang='en')
       meta(name='viewport', content='width=device-width')
 
     block styles
-      link(rel='stylesheet', type='text/css', href='/styles/base.css')
+      link(rel='stylesheet', href='/styles/base.css')
       link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto+Mono')
 
     block scripts
 
-  body
+  - var body_classes
+    if layout == 'fountain.pug'
+      - body_classes = ['fountain']
+
+  body(class=body_classes)
     nav
       block nav
         include includes/nav.pug

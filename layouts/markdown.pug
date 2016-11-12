@@ -1,4 +1,7 @@
 extends content.pug
 
+block append styles
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
+
 block content
   article.markdown!= contents
