@@ -37,7 +37,7 @@ app.use serve 'huw.github.io'
 
 # configure letsencrypt
 le = letsencrypt_express.create
-  server: 'staging'
+  server: 'https://acme-v01.api.letsencrypt.org/directory'
   configDir: os.homedir() + '/letsencrypt/etc'
   approveDomains: (options, certificates, callback) ->
     options.domains = certificates && certificates.altnames ||
