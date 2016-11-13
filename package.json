@@ -40,7 +40,7 @@
     "spdy": "^3.4.4"
   },
   "scripts": {
-    "push": "coffee build.coffee && git commit -a && git push origin master && git subtree push prefix=huw.github.io --squash build master",
+    "push": "coffee build.coffee && git commit -a && git push origin master && git subtree push --prefix=huw.github.io --squash build master",
     "serve": "git pull origin master && yarn && sudo coffee serve.coffee"
   }
 }
