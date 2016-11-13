@@ -1,5 +1,7 @@
 # koa modules
 koa = require 'koa'
+compress = require 'koa-compress'
+logger = require 'koa-logger'
 sslify = require 'koa-sslify'
 serve = require 'koa-static'
 letsencrypt_express = require 'letsencrypt-express'
@@ -10,7 +12,10 @@ https = require 'spdy'
 os = require 'os'
 
 app = koa()
+app.use logger
+  level: 9
 app.use serve 'huw.github.io'
+app.use compress()
 
 # configure letsencrypt
 le = letsencrypt_express.create
