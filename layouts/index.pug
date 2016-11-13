@@ -32,3 +32,30 @@ block main
         h2
           a(href=item.paths.href)= item.title
         time(datetime=item.created)= moment(item.created).format("MMMM D, YYYY")
+
+        if item.description
+          p.description= item.description
+
+  .item
+    h2
+      a(href='https://www.npmjs.com/package/metalsmith-fountain') metalsmith-fountain
+    time November 2016
+    p.description Renders Fountain screenplay files into HTML for use with Metalsmith sites (like this one).
+
+  .item
+    h2
+      a(href='https://www.npmjs.com/package/github-to-discourse') github-to-discourse
+    time February 2016
+    p.description A small JavaScript module to forward GitHub webhooks to a Discourse thread.
+
+  .item
+    h2
+      a(href='https://www.reddit.com/r/Monstercat') /r/Monstercat
+    time 2013-2016
+    p.description I wrote the current CSS theme for this subreddit, and acted as a community leader and moderator. Retired in 2016.
+
+  .item
+    h2
+      a(href='/spacerave2014') #spacerave2014
+    time April 2014
+    p.description An HTML5 canvas game I built in Year 10, a sort of infinite Space Invaders.
