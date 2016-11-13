@@ -6,7 +6,7 @@ letsencrypt_express = require 'letsencrypt-express'
 
 # other modules
 http = require 'http'
-https = require 'https'
+https = require 'spdy'
 os = require 'os'
 
 app = koa()
