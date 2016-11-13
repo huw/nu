@@ -1,5 +1,6 @@
 # koa modules
 koa = require 'koa'
+cache = require 'koa-redis-cache'
 compress = require 'koa-compress'
 logger = require 'koa-logger'
 sslify = require 'koa-sslify'
@@ -11,18 +12,36 @@ http = require 'http'
 https = require 'spdy'
 os = require 'os'
 
-app = koa()
+force_domain = (next) ->
+  request = this.request
+  host = request.hostname
+
+  if (host.startsWith('www'))
+    this.status = 301
+    this.redirect 'https://huw.nu' + request.url
+  else
+    yield next
+
+app = new koa()
 app.use logger
   level: 9
-app.use serve 'huw.github.io'
+app.use force_domain
+app.use cache
+  expire: 2592000 # 30 days
+  routes: ['/fonts', '/styles']
+app.use cache
+  expire: 432000  # 5 days
+  exclude: ['/fonts', '/styles']
 app.use compress()
+app.use serve 'huw.github.io'
 
 # configure letsencrypt
 le = letsencrypt_express.create
   server: 'staging'
   configDir: os.homedir() + '/letsencrypt/etc'
   approveDomains: (options, certificates, callback) ->
-    options.domains = certificates && certificates.altnames || options.domains
+    options.domains = certificates && certificates.altnames ||
+      ['huw.nu', 'www.huw.nu']
     options.email = 'me@huw.nu'
     options.agreeTos = true
 
@@ -37,8 +56,6 @@ server = https.createServer(le.httpsOptions, le.middleware(app.callback()))
 server.listen 443, -> console.log 'listening on %s', this.address()
 
 # HTTP -> HTTPS redirect
-koa_redirect = koa().use(sslify()).callback()
+koa_redirect = (new koa()).use(sslify()).callback()
 redirect_https = http.createServer(le.middleware(koa_redirect))
 redirect_https.listen 80, -> console.log 'running http redirect'
-
-app.listen(8080)
