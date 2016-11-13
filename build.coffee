@@ -97,4 +97,8 @@ build = ->
 #watcher2.on('change', build)
 build()
 
-cpr('source/static', 'huw.github.io', (err) -> )
+cpr('source/static', 'huw.github.io',
+  deleteFirst: true
+  overwrite: true
+  confirm: true
+(err) -> throw err if err)
