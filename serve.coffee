@@ -33,7 +33,7 @@ app.use cache
   expire: 432000  # 5 days
   exclude: ['/fonts', '/styles']
 app.use compress()
-app.use serve 'huw.github.io'
+app.use serve 'build'
 
 # configure letsencrypt
 le = letsencrypt_express.create

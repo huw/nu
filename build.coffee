@@ -90,14 +90,14 @@ build = ->
     .use htmlMinifier() # PRODUCTION ONLY
     .use cleanCss() # PRODUCTION ONLY
     .use imagemin() # PRODUCTION ONLY
-    .destination 'huw.github.io'
+    .destination 'build'
     .build (err) -> if err then throw err
 
 #watcher1.on('change', build)
 #watcher2.on('change', build)
 build()
 
-cpr('source/static', 'huw.github.io',
+cpr('source/static', 'build',
   deleteFirst: true
   overwrite: true
   confirm: true
