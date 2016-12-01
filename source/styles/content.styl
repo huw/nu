@@ -58,17 +58,54 @@ header
     a:hover
       background-position 0 0
 
-.box
-  //margin margin-mobile auto
-  //padding (margin-mobile / 2) 0
-  //max-width 400px
-  //border 2px solid black
-  text-align center
+.card
+  margin margin-mobile auto
+  max-width 400px
+  background url('/id-card.png')
+  background-size contain
+  background-repeat no-repeat
+  position relative
 
-  p
+  .card-text
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    margin 15px
+    max-width 200px
     font-family 'Roboto Mono', monospace
     text-transform uppercase
 
+    // vertically space text
+    display flex
+    flex-direction column
+    justify-content space-around
+
+    *
+      margin 0
+
+    h2
+      font-weight bold
+
+    +above(400px)
+      h2
+        font-size 2rem
+
+      margin 30px
+
+  &::before
+    // maintain aspect
+    // http://stackoverflow.com/a/24175439/3208895
+    content ""
+    float left
+    padding-bottom 63.75%
+
+  &::after
+    // clearfix
+    content ""
+    display table
+    clear both
+
   +desktop()
     margin margin-desktop auto
-    padding (margin-desktop / 2) 0

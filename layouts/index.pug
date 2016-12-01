@@ -8,20 +8,21 @@ block main
     .item
       h1
         a(href=item.paths.href)= item.title
-      time(datetime=item.created)= moment(item.created).format("MMMM D, YYYY")
+      +time(item.date, item.created)
 
       if item.description
         p.description= item.description
 
   hr
-  .box
-    h1 Find Me
-    p
-      a(href='mailto:me@huw.nu') email: me@huw.nu
-    p
-      a(href='https://github.com/huw') github: huw
-    p
-      a(href='https://keybase.io/huw') keybase: huw
+  .card
+    .card-text
+      h2 Huw Evans
+      p
+        a(href='mailto:me@huw.nu') email: me@huw.nu
+      p
+        a(href='https://github.com/huw') github: huw
+      p
+        a(href='https://keybase.io/huw') keybase: huw
 
   hr
   h1.item Projects
@@ -31,7 +32,7 @@ block main
       .item
         h2
           a(href=item.paths.href)= item.title
-        time(datetime=item.created)= moment(item.created).format("MMMM D, YYYY")
+        +time(item.date, item.created)
 
         if item.description
           p.description= item.description

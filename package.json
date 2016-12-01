@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "cpr": "^2.0.0",
+    "get-env": "^0.5.9",
     "glob-watcher": "^3.0.0",
     "highlight.js": "^9.8.0",
     "koa": "2",
@@ -40,7 +41,9 @@
     "spdy": "^3.4.4"
   },
   "scripts": {
-    "push": "coffee build.coffee && git commit -a && git push origin master",
-    "serve": "git pull origin master && yarn && sudo coffee serve.coffee"
+    "build": "coffee build.coffee",
+    "build-prod": "NODE_ENV=production coffee build.coffee",
+    "serve": "git pull origin master && yarn && NODE_ENV=production coffee build.coffee && sudo coffee serve.coffee",
+    "serve-prod": "git pull origin master && yarn && NODE_ENV=production coffee build.coffee && NODE_ENV=production sudo coffee serve.coffee"
   }
 }

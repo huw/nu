@@ -1351,6 +1351,12 @@ generate-object-property@^1.1.0:
   dependencies:
     is-property "^1.0.0"
 
+get-env:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/get-env/-/get-env-0.5.9.tgz#08e08259b53441016ddcdc4feadb4395bcb57245"
+  dependencies:
+    lodash "^4.16.6"
+
 get-proxy@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/get-proxy/-/get-proxy-1.1.0.tgz#894854491bc591b0f147d7ae570f5c678b7256eb"
@@ -2668,6 +2674,10 @@ lodash@^3.8.0:
 lodash@^4.14.0, lodash@^4.8.0:
   version "4.16.6"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.6.tgz#d22c9ac660288f3843e16ba7d2b5d06cca27d777"
+
+lodash@^4.16.6:
+  version "4.17.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
 
 lodash@~1.0.1:
   version "1.0.2"

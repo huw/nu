@@ -4,7 +4,11 @@ highlight = require 'highlight.js'
 metalsmith = require 'metalsmith'
 moment = require 'moment'
 rupture = require 'rupture'
-#watch = require 'glob-watcher'
+env = require('get-env')()
+
+if env == 'dev'
+  watch = require 'glob-watcher'
+  livereload = require 'metalsmith-livereload'
 
 # metalsmith plugins
 cleanCss = require 'metalsmith-clean-css'
@@ -15,7 +19,6 @@ fountain = require 'metalsmith-fountain'
 htmlMinifier = require 'metalsmith-html-minifier'
 imagemin = require 'metalsmith-imagemin/lib/node6'
 layouts = require 'metalsmith-layouts'
-#livereload = require 'metalsmith-livereload'
 markdown = require 'metalsmith-markdownit'
 moveUp = require 'metalsmith-move-up'
 paths = require 'metalsmith-paths'
@@ -30,8 +33,9 @@ katex = require 'markdown-it-katex'
 # Watch source and layout directories for changes
 # Likely not the most efficient way of doing this
 # But whatever, dev environment
-#watcher1 = watch 'source/**/*'
-#watcher2 = watch 'layouts/**/*'
+if env == 'dev'
+  watcher1 = watch 'source/**/*'
+  watcher2 = watch 'layouts/**/*'
 
 # Access markdown-it parser to enable markdown-it plugins
 md = markdown
@@ -48,10 +52,10 @@ md.parser.use footnote
 md.parser.use katex
 
 build = ->
-  metalsmith __dirname
+  ms = metalsmith __dirname
     .source 'source'
     # files in /styles/ are consolidated by stylus
-    .ignore ['**/styles/**/!(base.styl)', '**/static/**/*']
+    .ignore ['**/styles/**/!(base.styl)', '**/static/**/*', '**/.DS_Store']
     .use drafts()
     .use fileMetadata [{
         pattern: 'content/**/*.md'
@@ -85,20 +89,25 @@ build = ->
     .use layouts
       engine: 'pug'
       moment: moment
-    #.use livereload # DEV ONLY
-    #  debug: true
-    .use htmlMinifier() # PRODUCTION ONLY
-    .use cleanCss() # PRODUCTION ONLY
-    .use imagemin() # PRODUCTION ONLY
-    .destination 'build'
-    .build (err) -> if err then throw err
 
-#watcher1.on('change', build)
-#watcher2.on('change', build)
+  if env == 'dev'
+    ms.use livereload
+      debug: true
+  else
+    ms.use htmlMinifier()
+      .use cleanCss()
+      .use imagemin()
+
+  ms.destination 'build'
+  ms.build (err) ->
+    if err then throw err
+    cpr('source/static', 'build',
+      overwrite: true
+      confirm: true
+    (err) -> throw err if err)
+
+if env == 'dev'
+  watcher1.on('change', build)
+  watcher2.on('change', build)
+
 build()
-
-cpr('source/static', 'build',
-  deleteFirst: true
-  overwrite: true
-  confirm: true
-(err) -> throw err if err)
