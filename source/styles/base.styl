@@ -19,19 +19,15 @@ html
   box-sizing inherit
 
 body
-  // sufficient margins for body,
-  // gives a nice padding
-  margin margin-mobile margin-mobile
+  // gives a nice padding, limits at 650
+  // desktop will always fall back on 650
+  width 100vw - (2 * margin-mobile)
+  max-width 650px
+  margin margin-mobile auto
   font-family "Computer Modern"
 
   +desktop()
-    // restrict body width to 3/7ths of viewport
-    // (3/7ths is just _nicer_ than 50%)
-    // and centre it with margins
     margin margin-desktop auto
-    &:not(.fountain)
-      min-width 650px
-      max-width (3 / 7) * 100 vw
 
 // GENERAL ELEMENT STYLES
 

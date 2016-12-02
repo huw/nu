@@ -4,11 +4,6 @@ highlight = require 'highlight.js'
 metalsmith = require 'metalsmith'
 moment = require 'moment'
 rupture = require 'rupture'
-env = require('get-env')()
-
-if env == 'dev'
-  watch = require 'glob-watcher'
-  livereload = require 'metalsmith-livereload'
 
 # metalsmith plugins
 cleanCss = require 'metalsmith-clean-css'
@@ -30,13 +25,6 @@ emoji = require 'markdown-it-emoji'
 footnote = require 'markdown-it-footnote'
 katex = require 'markdown-it-katex'
 
-# Watch source and layout directories for changes
-# Likely not the most efficient way of doing this
-# But whatever, dev environment
-if env == 'dev'
-  watcher1 = watch 'source/**/*'
-  watcher2 = watch 'layouts/**/*'
-
 # Access markdown-it parser to enable markdown-it plugins
 md = markdown
   typographer: true
@@ -52,7 +40,7 @@ md.parser.use footnote
 md.parser.use katex
 
 build = ->
-  ms = metalsmith __dirname
+  metalsmith __dirname
     .source 'source'
     # files in /styles/ are consolidated by stylus
     .ignore ['**/styles/**/!(base.styl)', '**/static/**/*', '**/.DS_Store']
@@ -89,25 +77,15 @@ build = ->
     .use layouts
       engine: 'pug'
       moment: moment
-
-  if env == 'dev'
-    ms.use livereload
-      debug: true
-  else
-    ms.use htmlMinifier()
-      .use cleanCss()
-      .use imagemin()
-
-  ms.destination 'build'
-  ms.build (err) ->
-    if err then throw err
-    cpr('source/static', 'build',
-      overwrite: true
-      confirm: true
-    (err) -> throw err if err)
-
-if env == 'dev'
-  watcher1.on('change', build)
-  watcher2.on('change', build)
+    .use htmlMinifier()
+    .use cleanCss()
+    .use imagemin()
+    .destination 'build'
+    .build (err) ->
+      if err then throw err
+      cpr('source/static', 'build',
+        overwrite: true
+        confirm: true
+      (err) -> throw err if err)
 
 build()
