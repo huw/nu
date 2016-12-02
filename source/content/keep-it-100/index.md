@@ -3,7 +3,7 @@ collection:
 - featured
 - content
 description: This was the winner of the Tony McFadyen Essay Prize at my school. It's about authenticity, as an emerging cultural value.
-title: Keep it 100
+title: Keep It 100
 date: 2016-07-18
 ---
 
