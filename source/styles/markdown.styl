@@ -12,10 +12,17 @@ article.markdown
     +desktop()
       margin margin-desktop 0
 
+  p
+    margin 1.75rem 0
+
   img
-    display block
-    max-width 100%
-    margin 0 auto
+    width 100%
+    border-radius 2px
+    box-shadow 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    margin-bottom margin-mobile
+
+    +desktop()
+      margin-bottom margin-desktop 0
 
   blockquote
     font-style italic
