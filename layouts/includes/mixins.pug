@@ -1,5 +1,7 @@
-mixin time(date, created)
-  if date
+mixin time(dateString, date, created)
+  if dateString
+    time()= dateString
+  else if date
     time(datetime=moment(date).format())= moment(date).format("MMMM D, YYYY")
   else
     time(datetime=created)= moment(created).format("MMMM D, YYYY")

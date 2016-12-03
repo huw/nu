@@ -8,7 +8,7 @@ block main
     .item
       h1
         a(href=item.paths.href)= item.title
-      +time(item.date, item.created)
+      +time(item.dateString, item.date, item.created)
 
       if item.description
         p.description= item.description
@@ -32,7 +32,7 @@ block main
       .item
         h2
           a(href=item.paths.href)= item.title
-        +time(item.date, item.created)
+        +time(item.dateString, item.date, item.created)
 
         if item.description
           p.description= item.description
