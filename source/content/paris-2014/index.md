@@ -1,6 +1,6 @@
 ---
 title: 📷 Paris, 2014
-dateString: November 2016
+dateString: July 2014
 date: 2014-07-01
 ---
 ![](1.jpg)
