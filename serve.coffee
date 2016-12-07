@@ -12,6 +12,7 @@ env = require('get-env')()
 http = require 'http'
 https = require 'spdy'
 os = require 'os'
+require('./build').build()
 
 force_domain = (next) ->
   request = this.request

@@ -69,7 +69,7 @@ build = ->
       filePatterns: ['**/*.html']
     .use collections
       content:
-        sortBy: 'created'
+        sortBy: 'date'
         reverse: true
     .use paths
       property: 'paths'
@@ -87,5 +87,9 @@ build = ->
         overwrite: true
         confirm: true
       (err) -> throw err if err)
+    console.log('build complete')
+
+module.exports =
+  build: build
 
 build()

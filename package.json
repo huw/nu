@@ -42,7 +42,7 @@
   },
   "scripts": {
     "build": "coffee build.coffee",
-    "serve": "git pull origin master && yarn && coffee build.coffee && sudo coffee serve.coffee",
-    "serve-prod": "git pull origin master && yarn && coffee build.coffee && sudo NODE_ENV=production coffee serve.coffee"
+    "serve": "git pull origin master && yarn && sudo coffee serve.coffee",
+    "serve-prod": "git pull origin master && yarn && sudo NODE_ENV=production coffee serve.coffee"
   }
 }
