@@ -43,8 +43,32 @@
     },
     "joke-of-the-day/index.html": {
         "filename": "joke-of-the-day/index.html",
-        "hash": "11bef2124b26d1daba39d695bad7b3d1",
+        "hash": "19317660b1220c6fbba13e8c71acbdce",
         "created": "2016-12-03T06:38:08.687Z",
-        "updated": "2016-12-03T06:38:08.687Z"
+        "updated": "2016-12-07T14:22:18.830Z"
+    },
+    "killcare-2015/index.html": {
+        "filename": "killcare-2015/index.html",
+        "hash": "31d32cae9681bc7e26393c5ad20b08f2",
+        "created": "2016-12-07T14:22:18.830Z",
+        "updated": "2016-12-07T14:22:18.830Z"
+    },
+    "noosa-2016/index.html": {
+        "filename": "noosa-2016/index.html",
+        "hash": "312376012527b8a913e66ad8169d42c2",
+        "created": "2016-12-07T14:22:18.830Z",
+        "updated": "2016-12-07T14:22:18.830Z"
+    },
+    "paris-2014/index.html": {
+        "filename": "paris-2014/index.html",
+        "hash": "3927dd26914e50b885c10131fb92253f",
+        "created": "2016-12-07T14:22:18.830Z",
+        "updated": "2016-12-07T14:22:18.830Z"
+    },
+    "tasmania-2015/index.html": {
+        "filename": "tasmania-2015/index.html",
+        "hash": "0556612ff68943817eef9a128c7f82eb",
+        "created": "2016-12-07T14:22:18.830Z",
+        "updated": "2016-12-07T14:22:18.830Z"
     }
 }

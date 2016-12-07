@@ -1,6 +1,7 @@
 ---
 title: Joke Of The Day
 dateString: May 2016
+date: 2016-05-23
 description: My first published book, and the silliest thing I've ever done.
 ---
 Here is a permanent record of one of the silliest things I've ever done.
@@ -23,17 +24,17 @@ The teacher that sent this email was new to the school that year, and taught (at
 
 But nothing could prepare us for Joke of the Day.
 
-![img](14.jpg)
+![](14.jpg)
 
 We should probably get a couple of things out of the way first: The jokes were, fortunately, _not_ daily, and the given frequency of 1.57E-06Hz is 6.6 days, or 0.94 weeks. I never found out what was so significant about that number, but it didn't matter: The emails were irregular enough as it was, ranging from mere hours between instances to months.
 
-![img](9.jpg)
+![](9.jpg)
 
 The jokes were awful, and often not even science-themed. But they were dad-joke awful. We came to love to hate them, joking around in our classes about the day's most recent joke. They became a part of the furniture. But on the 11th of May, 2016, the very last joke came through, comparing Tesla and Edison to the band AC/DC. I guess nothing lasts forever.
 
 Or does it?
 
-![img](11.jpg)
+![](11.jpg)
 
 In the middle of exam blocks, people do weird things. Right when we're working the hardest, we have a lot of extra energy to expend on other projects. What others would normally get done in a week, we get done in a few days.
 
@@ -41,34 +42,34 @@ Somewhere in this exam block, I decided that for my friend's birthday, I'd compi
 
 This is what it looked like:
 
-![img](2.jpg)
+![](2.jpg)
 
-![img](3.jpg)
+![](3.jpg)
 
-![img](4.jpg)
+![](4.jpg)
 
-![img](5.jpg)
+![](5.jpg)
 
-![img](6.jpg)
+![](6.jpg)
 
-![img](7.jpg)
+![](7.jpg)
 
-![img](8.jpg)
+![](8.jpg)
 
-![img](10.jpg)
+![](10.jpg)
 
-![img](12.jpg)
+![](12.jpg)
 
-![img](15.jpg)
+![](15.jpg)
 
-![img](16.jpg)
+![](16.jpg)
 
-![img](17.jpg)
+![](17.jpg)
 
-![img](18.jpg)
+![](18.jpg)
 
-![img](19.jpg)
+![](19.jpg)
 
 This is a small sample of an 88-page book, including a masterfully photoshoppped front cover, which grafted my teacher's face on Einstein, in front of a blackboard. I've had to withhold a few photos to keep identifying imagery out of the project, but I think the photos here give a good snapshot of it.
 
-![img](13.jpg)
+![](13.jpg)

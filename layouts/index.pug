@@ -27,6 +27,12 @@ block main
   hr
   h1.item Projects
 
+  .item
+    h2
+      a(href='/spacerave2014') #spacerave2014
+    time April 2014
+    p.description An HTML5 canvas game I built in Year 10, a sort of infinite Space Invaders.
+
   each item in collections.content
     if collections.featured.indexOf(item) == -1
       .item
@@ -54,9 +60,3 @@ block main
       a(href='https://www.reddit.com/r/Monstercat') /r/Monstercat
     time 2013-2016
     p.description I wrote the current CSS theme for this subreddit, and acted as a community leader and moderator. Retired in 2016.
-
-  .item
-    h2
-      a(href='/spacerave2014') #spacerave2014
-    time April 2014
-    p.description An HTML5 canvas game I built in Year 10, a sort of infinite Space Invaders.
