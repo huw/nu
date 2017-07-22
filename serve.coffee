@@ -5,7 +5,7 @@ compress = require 'koa-compress'
 logger = require 'koa-logger'
 sslify = require 'koa-sslify'
 serve = require 'koa-static'
-letsencrypt_express = require 'letsencrypt-express'
+letsencrypt_express = require 'greenlock-express'
 
 # other modules
 env = require('get-env')()
