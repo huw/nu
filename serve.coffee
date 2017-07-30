@@ -47,6 +47,7 @@ if env == 'prod'
         ['huw.nu', 'www.huw.nu']
       options.email = 'me@huw.nu'
       options.agreeTos = true
+      options.challengeType = 'tls-sni-01'
 
       callback null, {
         options: options
