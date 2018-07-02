@@ -1,19 +1,10 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
+  extends: ['airbnb'],
+  globals: {
+    graphql: false,
   },
-  "plugins": [
-    "react",
-  ],
-  "globals": {
-    "graphql": false,
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
   },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true,
-    },
-  }
-}
+};

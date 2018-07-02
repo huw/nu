@@ -1,16 +1,16 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography';
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
+    const { location, children } = this.props;
+    let header;
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
+    let rootPath = '/';
+    if (typeof __PREFIX_PATHS__ !== 'undefined' && __PREFIX_PATHS__) {
+      rootPath = `${__PATH_PREFIX__}/`;
     }
 
     if (location.pathname === rootPath) {
@@ -28,12 +28,12 @@ class Template extends React.Component {
               textDecoration: 'none',
               color: 'inherit',
             }}
-            to={'/'}
+            to="/"
           >
             Gatsby Starter Blog
           </Link>
         </h1>
-      )
+      );
     } else {
       header = (
         <h3
@@ -49,12 +49,12 @@ class Template extends React.Component {
               textDecoration: 'none',
               color: 'inherit',
             }}
-            to={'/'}
+            to="/"
           >
             Gatsby Starter Blog
           </Link>
         </h3>
-      )
+      );
     }
     return (
       <div
@@ -68,8 +68,8 @@ class Template extends React.Component {
         {header}
         {children()}
       </div>
-    )
+    );
   }
 }
 
-export default Template
+export default Template;

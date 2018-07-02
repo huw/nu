@@ -2,5 +2,7 @@
   // prettier
   "editor.formatOnSave": true,
   "prettier.eslintIntegration": true,
-  "javascript.format.enable": false
+  "javascript.format.enable": false,
+  // annoying, let eslint handle it
+  "javascript.validate.enable": false
 }

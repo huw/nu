@@ -1,13 +1,13 @@
-const _ = require("lodash");
-const Promise = require("bluebird");
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
+const _ = require('lodash');
+const Promise = require('bluebird');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve("./src/templates/blog-post.js");
+    const blogPost = path.resolve('./src/templates/blog-post.js');
     resolve(
       graphql(
         `
@@ -28,8 +28,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
             }
           }
-        `
-      ).then(result => {
+        `,
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors);
           reject(result.errors);
@@ -39,8 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const posts = result.data.allMarkdownRemark.edges;
 
         _.each(posts, (post, index) => {
-          const previous =
-            index === posts.length - 1 ? null : posts[index + 1].node;
+          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
 
           createPage({
@@ -49,11 +48,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: post.node.fields.slug,
               previous,
-              next
-            }
+              next,
+            },
           });
         });
-      })
+      }),
     );
   });
 };
@@ -61,12 +60,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === 'MarkdownRemark') {
     const value = createFilePath({ node, getNode });
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
-      value
+      value,
     });
   }
 };
