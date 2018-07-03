@@ -2,9 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
 
 // eslint-disable-next-line import/named
 import { rhythm, scale } from '../utils/typography';
+
+const Date = styled(Link)`
+  ${scale(-1 / 5)};
+  display: block;
+  margin-bottom: ${rhythm(1)};
+  margin-top: ${rhythm(-1)};
+  text-decoration: none;
+  color: inherit;
+`;
+
+const NavigationLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+`;
+
+const Navigation = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+`;
 
 const BlogPostTemplate = (props) => {
   const {
@@ -15,6 +40,7 @@ const BlogPostTemplate = (props) => {
       },
     },
     pathContext: { previous, next },
+    location,
   } = props;
 
   return (
@@ -23,50 +49,30 @@ const BlogPostTemplate = (props) => {
       <h1>
         {post.frontmatter.title}
       </h1>
-      <time
-        dateTime={post.frontmatter.date}
-        style={{
-          ...scale(-1 / 5),
-          display: 'block',
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        {post.frontmatter.date}
-      </time>
+      <Date to={location}>
+        <time dateTime={post.frontmatter.date}>
+          {post.frontmatter.date}
+        </time>
+      </Date>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          listStyle: 'none',
-          padding: 0,
-          marginLeft: 0,
-        }}
-      >
+      <Navigation>
         {previous && (
           <li>
-            <Link to={previous.fields.slug} rel="prev">
+            <NavigationLink to={previous.fields.slug} rel="prev">
               {'← '}
               {previous.frontmatter.title}
-            </Link>
+            </NavigationLink>
           </li>
         )}
         {next && (
           <li>
-            <Link to={next.fields.slug} rel="next">
+            <NavigationLink to={next.fields.slug} rel="next">
               {next.frontmatter.title}
               {' →'}
-            </Link>
+            </NavigationLink>
           </li>
         )}
-      </ul>
+      </Navigation>
     </div>
   );
 };
@@ -94,6 +100,7 @@ BlogPostTemplate.propTypes = {
     previous: OtherArticle,
     next: OtherArticle,
   }).isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default BlogPostTemplate;

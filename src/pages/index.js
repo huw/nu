@@ -2,9 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
 // eslint-disable-next-line import/named
 import { rhythm } from '../utils/typography';
+
+const PostTitle = styled.h3`
+  margin-bottom: ${rhythm(1 / 4)};
+`;
+
+const PostTitleLink = styled(Link)`
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:visited {
+    color: inherit;
+  }
+`;
 
 const BlogIndex = (props) => {
   const {
@@ -23,15 +39,11 @@ const BlogIndex = (props) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
           <div key={node.fields.slug}>
-            <h3
-              style={{
-                marginBottom: rhythm(1 / 4),
-              }}
-            >
-              <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+            <PostTitle>
+              <PostTitleLink to={node.fields.slug}>
                 {title}
-              </Link>
-            </h3>
+              </PostTitleLink>
+            </PostTitle>
             <small>
               {node.frontmatter.date}
             </small>
