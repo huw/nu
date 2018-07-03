@@ -71,9 +71,9 @@ git
         <BioHref href="mailto:me@huw.nu">
 mail
         </BioHref>
-        <BioLink to="cv.pdf">
+        <BioHref href="https://github.com/huw/cv/raw/master/CV.pdf">
 cv
-        </BioLink>
+        </BioHref>
         <BioHref href="https://keybase.io/huw">
 gpg
         </BioHref>
