@@ -1,75 +1,51 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+// eslint-disable-next-line import/named
 import { rhythm, scale } from '../utils/typography';
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props;
-    let header;
+const Template = (props) => {
+  const { children } = props;
 
-    let rootPath = '/';
-    if (typeof __PREFIX_PATHS__ !== 'undefined' && __PREFIX_PATHS__) {
-      rootPath = `${__PATH_PREFIX__}/`;
-    }
-
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to="/"
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h1>
-      );
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to="/"
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
-      );
-    }
-    return (
-      <div
+  const header = (
+    <h1
+      style={{
+        ...scale(1.5),
+        marginBottom: rhythm(1.5),
+        marginTop: 0,
+      }}
+    >
+      <Link
         style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          boxShadow: 'none',
+          textDecoration: 'none',
+          color: 'inherit',
         }}
+        to="/"
       >
-        {header}
-        {children()}
-      </div>
-    );
-  }
-}
+        Huw
+      </Link>
+    </h1>
+  );
+
+  return (
+    <div
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: rhythm(24),
+        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      }}
+    >
+      {header}
+      {children()}
+    </div>
+  );
+};
+
+Template.propTypes = {
+  children: PropTypes.func.isRequired,
+};
 
 export default Template;
