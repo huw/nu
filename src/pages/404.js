@@ -1,14 +1,14 @@
 import React from 'react';
 
-const NotFoundPage = () => (
+const FourOhFour = () => (
   <div>
     <h1>
-NOT FOUND
+404
     </h1>
     <p>
-You just hit a route that doesn&#39;t exist... the sadness.
+Nothing is here.
     </p>
   </div>
 );
 
-export default NotFoundPage;
+export default FourOhFour;
