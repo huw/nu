@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
 // eslint-disable-next-line import/named
-import { rhythm } from '../utils/typography';
+import { scale, rhythm } from '../utils/typography';
 
 const PostTitle = styled.h3`
   margin-bottom: ${rhythm(1 / 4)};
@@ -20,6 +20,13 @@ const PostTitleLink = styled(Link)`
   &:visited {
     color: inherit;
   }
+`;
+
+const PostDate = styled.time`
+  display: block;
+  ${scale(-1 / 4)};
+  margin-top: ${rhythm(-1 / 4)};
+  margin-bottom: ${rhythm(1 / 4)};
 `;
 
 const BlogIndex = (props) => {
@@ -44,9 +51,9 @@ const BlogIndex = (props) => {
                 {title}
               </PostTitleLink>
             </PostTitle>
-            <small>
+            <PostDate dateTime={node.frontmatter.date}>
               {node.frontmatter.date}
-            </small>
+            </PostDate>
             <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </div>
         );
