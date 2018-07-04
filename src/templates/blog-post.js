@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
+import 'katex/dist/katex.min.css';
+
 // eslint-disable-next-line import/named
 import { rhythm, scale } from '../utils/typography';
 
