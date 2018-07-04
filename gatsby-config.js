@@ -1,4 +1,6 @@
-module.exports = {
+const env = process.env.NODE_ENV || 'dev';
+
+const object = {
   siteMetadata: {
     title: 'Huw',
     author: 'Huw Evans',
@@ -55,3 +57,18 @@ module.exports = {
     },
   ],
 };
+
+if (env === 'production') {
+  object.plugins.push({
+    resolve: 'gatsby-plugin-styled-components',
+    options: {
+      displayName: false,
+    },
+  });
+} else {
+  object.plugins.push({
+    resolve: 'gatsby-plugin-styled-components',
+  });
+}
+
+module.exports = object;
