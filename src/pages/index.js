@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/named
-import { scale, rhythm } from '../utils/typography';
+import Layout from '../components/layout';
+
+import { rhythm, scale } from '../utils/typography';
 
 const PostTitle = styled.h3`
   margin-bottom: ${rhythm(1 / 4)};
@@ -40,25 +41,27 @@ const BlogIndex = (props) => {
   } = props;
 
   return (
-    <div>
-      <Helmet title={siteTitle} />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <div key={node.fields.slug}>
-            <PostTitle>
-              <PostTitleLink to={node.fields.slug}>
-                {title}
-              </PostTitleLink>
-            </PostTitle>
-            <PostDate dateTime={node.frontmatter.date}>
-              {node.frontmatter.date}
-            </PostDate>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        );
-      })}
-    </div>
+    <Layout>
+      <div>
+        <Helmet title={siteTitle} />
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <div key={node.fields.slug}>
+              <PostTitle>
+                <PostTitleLink to={node.fields.slug}>
+                  {title}
+                </PostTitleLink>
+              </PostTitle>
+              <PostDate dateTime={node.frontmatter.date}>
+                {node.frontmatter.date}
+              </PostDate>
+              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          );
+        })}
+      </div>
+    </Layout>
   );
 };
 

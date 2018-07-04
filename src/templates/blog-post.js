@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import 'katex/dist/katex.min.css';
+import Layout from '../components/layout';
 
-// eslint-disable-next-line import/named
 import { rhythm, scale } from '../utils/typography';
+
+import 'katex/dist/katex.min.css';
 
 const Date = styled(Link)`
   ${scale(-1 / 5)};
@@ -41,41 +42,43 @@ const BlogPostTemplate = (props) => {
         siteMetadata: { title: siteTitle },
       },
     },
-    pathContext: { previous, next },
+    pageContext: { previous, next },
     location,
   } = props;
 
   return (
-    <div>
-      <Helmet title={`${post.frontmatter.title} • ${siteTitle}`} />
-      <h1>
-        {post.frontmatter.title}
-      </h1>
-      <Date to={location}>
-        <time dateTime={post.frontmatter.date}>
-          {post.frontmatter.date}
-        </time>
-      </Date>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Navigation>
-        {previous && (
-          <li>
-            <NavigationLink to={previous.fields.slug} rel="prev">
-              {'← '}
-              {previous.frontmatter.title}
-            </NavigationLink>
-          </li>
-        )}
-        {next && (
-          <li>
-            <NavigationLink to={next.fields.slug} rel="next">
-              {next.frontmatter.title}
-              {' →'}
-            </NavigationLink>
-          </li>
-        )}
-      </Navigation>
-    </div>
+    <Layout>
+      <div>
+        <Helmet title={`${post.frontmatter.title} • ${siteTitle}`} />
+        <h1>
+          {post.frontmatter.title}
+        </h1>
+        <Date to={location}>
+          <time dateTime={post.frontmatter.date}>
+            {post.frontmatter.date}
+          </time>
+        </Date>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Navigation>
+          {previous && (
+            <li>
+              <NavigationLink to={previous.fields.slug} rel="prev">
+                {'← '}
+                {previous.frontmatter.title}
+              </NavigationLink>
+            </li>
+          )}
+          {next && (
+            <li>
+              <NavigationLink to={next.fields.slug} rel="next">
+                {next.frontmatter.title}
+                {' →'}
+              </NavigationLink>
+            </li>
+          )}
+        </Navigation>
+      </div>
+    </Layout>
   );
 };
 
@@ -98,7 +101,7 @@ BlogPostTemplate.propTypes = {
       html: PropTypes.node.isRequired,
     }).isRequired,
   }).isRequired,
-  pathContext: PropTypes.shape({
+  pageContext: PropTypes.shape({
     previous: OtherArticle,
     next: OtherArticle,
   }).isRequired,

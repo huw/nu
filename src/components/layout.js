@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/named
 import { rhythm, scale } from '../utils/typography';
 
 const Page = styled.div`
@@ -43,18 +42,7 @@ const BioHref = styled.a`
   }
 `;
 
-const BioLink = styled(Link)`
-  margin-right: ${rhythm(0.5)};
-  text-decoration: none;
-  color: inherit;
-
-  &:visited,
-  &:hover {
-    color: inherit;
-  }
-`;
-
-const Template = (props) => {
+const Layout = (props) => {
   const { children } = props;
 
   const header = (
@@ -84,13 +72,17 @@ gpg
   return (
     <Page>
       {header}
-      {children()}
+      {children}
     </Page>
   );
 };
 
-Template.propTypes = {
-  children: PropTypes.func.isRequired,
+Layout.propTypes = {
+  children: PropTypes.node,
 };
 
-export default Template;
+Layout.defaultProps = {
+  children: null,
+};
+
+export default Layout;
