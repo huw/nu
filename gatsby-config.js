@@ -5,6 +5,7 @@ const object = {
     title: 'Huw',
     author: 'Huw Evans',
     siteUrl: 'https://huw.nu/',
+    description: "huw's website & blog",
   },
   plugins: [
     {
