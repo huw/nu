@@ -55,6 +55,7 @@ const object = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'gatsby-plugin-netlify',
   ],
 };
 

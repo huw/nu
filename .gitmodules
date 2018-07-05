@@ -1,0 +1,3 @@
+[submodule "static/spacerave2014"]
+    path = static/spacerave2014
+    url = git@github.com:huw/spacerave2014.git
