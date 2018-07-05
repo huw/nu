@@ -1,7 +1,11 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
 const path = require('path');
+const download = require('download');
 const { createFilePath } = require('gatsby-source-filesystem');
+
+// download latest version of CV before building
+exports.onPreBootstrap = async () => download('https://github.com/huw/cv/raw/master/CV.pdf', 'static');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;

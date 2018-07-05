@@ -53,17 +53,17 @@ huw
         </TitleLink>
       </Title>
       <span>
-        <BioHref href="https://github.com/huw">
-git
+        <BioHref href="https://github.com/huw" target="_blank">
+          git
         </BioHref>
-        <BioHref href="mailto:me@huw.nu">
-mail
+        <BioHref href="mailto:me@huw.nu" target="_blank">
+          mail
         </BioHref>
-        <BioHref href="https://github.com/huw/cv/raw/master/CV.pdf">
-cv
+        <BioHref href="CV.pdf" target="_blank">
+          cv
         </BioHref>
-        <BioHref href="https://keybase.io/huw">
-gpg
+        <BioHref href="https://keybase.io/huw" target="_blank">
+          gpg
         </BioHref>
       </span>
     </Header>
