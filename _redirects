@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-http://huw.netlify.com/* http://huw.nu/:splat 301!
+https://huw.netlify.com/* https://huw.nu/:splat 301!
