@@ -1,10 +1,8 @@
 ---
 title: Room 101
 date: "2016-08-19T00:00:00.000Z"
-excerpt: I wrote a full sitcom screenplay in my last year of high school. It was one of the most rewarding experiences of my life.
+excerpt: I wrote a TV sitcom screenplay in my last year of high school. It was one of the most rewarding experiences of my life.
 ---
-
-I wrote a full sitcom screenplay in my last year of high school. 
 
 Like most other countries, Australian high school students sit a set of exams called the Higher School Certificate — except some of them, like English Extension 2, aren't exams at all.
 
