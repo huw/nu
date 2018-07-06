@@ -1,8 +1,7 @@
 ---
 title: Joke of the Day
-dateString: May 2016
-date: 2016-05-23
-description: My first published book, and the silliest thing I've ever done.
+date: "2016-05-23T00:00:00.000Z"
+excerpt: My first published book, and the silliest thing I've ever done.
 ---
 Here is a permanent record of one of the silliest things I've ever done.
 
