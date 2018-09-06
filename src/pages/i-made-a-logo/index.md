@@ -1,6 +1,7 @@
 ---
 title: I made a logo
-date: "2018-09-06T00:00:00.000Z"
+date: "2018-08-16T00:00:00.000Z"
+description: Cam W sent me a message a few weeks ago asking if I could put together a logo for the Sydney University Astronomy Society.
 ---
 
 Cam W sent me a message a few weeks ago asking if I could put together a logo for the Sydney University Astronomy Society. Cam's into space. [I made a book for him a couple years ago](/joke-of-the-day).
