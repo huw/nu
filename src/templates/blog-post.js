@@ -53,7 +53,7 @@ const BlogPostTemplate = (props) => {
         <h1>
           {post.frontmatter.title}
         </h1>
-        <Date to={location}>
+        <Date to={location.pathname}>
           <time dateTime={post.frontmatter.date}>
             {post.frontmatter.date}
           </time>
@@ -105,7 +105,9 @@ BlogPostTemplate.propTypes = {
     previous: OtherArticle,
     next: OtherArticle,
   }).isRequired,
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BlogPostTemplate;
