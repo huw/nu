@@ -51,7 +51,7 @@ class BlogIndex extends React.Component {
                 slug: PropTypes.string.isRequired,
               }).isRequired,
               excerpt: PropTypes.node.isRequired,
-            }).isRequired,
+            }),
           }).isRequired,
         ]).isRequired,
       }).isRequired,
